@@ -1,0 +1,63 @@
+extends layoutFrame.pug 
+
+block content 
+    
+    link(href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css")
+    script(src="//code.jquery.com/jquery-1.11.1.min.js")
+    script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js")
+    
+    link(href="/css/chat.css"  rel="stylesheet" )
+    .main_section
+        .container
+            .chat_container
+                .col-sm-12.message_section
+                    .row
+                        .new_message_head
+                            .pull-left
+                                button
+                                    i.fa.fa-plus-square-o(aria-hidden='true')
+                                    |  New Message
+                            .pull-right
+                                .dropdown
+                                    button#dropdownMenu1.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                        i.fa.fa-cogs(aria-hidden='true')
+                                        |   Setting
+                                        span.caret
+                                    ul.dropdown-menu.dropdown-menu-right(aria-labelledby='dropdownMenu1')
+                                        li
+                                            a(href='#') Action
+                                        li
+                                            a(href='#') Profile
+                                        li
+                                            a(href='#') Logout
+                        .chat_area
+                            ul.list-unstyled(id="messages-container")
+                                
+                        .message_write
+                            div.message-input-container
+                                input.form-control(placeholder='type a message' id="message-content")
+                                button.pull-right.btn.btn-success(id="send-message-btn")
+                                    | Send
+                            div(style="margin-top:20px")
+                                .col-sm-12 
+                                    .col-sm-4 
+                                        .form-group.form-inline 
+                                            input.form-control(placeholder='Email' id="email")
+                                            button.btn.btn-primary(id="change-email-btn") Set Email
+                                        .form-group.form-inline 
+                                            input.form-control(placeholder='Name' id="name")
+                                            button.btn.btn-primary(id="change-name-btn") Set Name
+                                        .form-group.form-inline 
+                                            input.form-control(placeholder='Profile Photo' id="profilePicture")
+                                            button.btn.btn-primary(id="change-photo-btn") Set Photo
+                                    .col-sm-8 
+                                        h3 Connected Users
+                                        p(id="users")
+
+
+                            
+                            
+
+
+
+    script(src="/js/chat.js")
