@@ -78,10 +78,10 @@ document.querySelector("#send-message-btn").addEventListener("click", async (eve
     if(messageContent.value == '')
         return;
     try{
-        socket.emit('newMessage',JSON.stringify({
+        socket.emit('newMessage',{
             message:messageContent.value,
             date:new Date()
-            }));
+            });
             messageContent.value= '';
     }
     catch(err){

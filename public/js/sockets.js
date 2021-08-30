@@ -28,11 +28,11 @@ document.querySelector("#btn-post").addEventListener("click", async (event) => {
     const thumbnail = document.querySelector("#thumbnail");
 
     try{
-        socket.emit('newProduct',JSON.stringify({
+        socket.emit('newProduct',{
             title:title.value,
             price:price.value,
             thumbnail:thumbnail.value
-            }));
+            });
         title.value= '';
         price.value= '';
         thumbnail.value= '';

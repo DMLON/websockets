@@ -61,7 +61,7 @@ io.on('connection',async socket=>{
 
     socket.on('newMessage',async message=>{
         try{
-            message = JSON.parse(message);
+            // message = JSON.parse(message);
             const index = connectedUsers.map(user => user.id).indexOf(String(socket.id));
             const user = connectedUsers[index]
             const id = await db_messages.save({...message, name:user.name ,profilePicture:user.profilePicture, email:user.email})//     // console.log('POST /products');
