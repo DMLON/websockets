@@ -43,7 +43,6 @@ io.on('connection',async socket=>{
     // Esto se emite desde el cliente
     socket.on('newProduct',async product=>{
         try{
-            product = JSON.parse(product);
             const id = await db_products.save(product)//     // console.log('POST /products');
         }
         catch(error){
@@ -61,7 +60,6 @@ io.on('connection',async socket=>{
 
     socket.on('newMessage',async message=>{
         try{
-            // message = JSON.parse(message);
             const index = connectedUsers.map(user => user.id).indexOf(String(socket.id));
             const user = connectedUsers[index]
             const id = await db_messages.save({...message, name:user.name ,profilePicture:user.profilePicture, email:user.email})//     // console.log('POST /products');
