@@ -19,9 +19,11 @@ app.set('view engine','pug');
 
 // Validation middleware
 const validateProduct = require('./middlewares/productValidator');
-const {Container} = require('./container'); 
-const db_products = new Container('./products.json');
-const db_messages = new Container('./messages.json');
+const {DBConnector} = require('./database/connector'); 
+const MariaDBOptions = require('./database/options/mariaDB');
+const SQLite3Options = require('./database/options/SQLite3');
+const db_products = new DBConnector('products',MariaDBOptions.options);
+const db_messages = new DBConnector('messages',SQLite3Options.options);
 
 // main form containing infor for new products
 
