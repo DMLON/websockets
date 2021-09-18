@@ -1,5 +1,6 @@
 
 const fs = require('fs');
+const path = require('path');
 const generateProducts = async ()=>{
     const {options} = require('./options/mariaDB');
     let destroyed = false;
@@ -20,7 +21,7 @@ const generateProducts = async ()=>{
         });
         console.log("Products table created");
         try{
-            const content = await fs.promises.readFile("./database/products.json",'utf-8');
+            const content = await fs.promises.readFile(path.join(__dirname, '/products.json'),'utf-8');
             try{
                 const objets =  JSON.parse(content);
                 try{
@@ -82,7 +83,7 @@ const generateMessages = async () =>{
         });
         console.log("Messages table created");
         try{
-            const content = await fs.promises.readFile("./database/messages.json",'utf-8');
+            const content = await fs.promises.readFile(path.join(__dirname, '/messages.json'),'utf-8');
             try{
                 const objets =  JSON.parse(content);
                 try{
