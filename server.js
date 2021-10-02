@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-
+const faker = require("faker");
+const axios = require('axios');
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
@@ -22,6 +23,7 @@ const validateProduct = require('./middlewares/productValidator');
 const {DBConnector} = require('./database/connector'); 
 const MariaDBOptions = require('./database/options/mariaDB');
 const SQLite3Options = require('./database/options/SQLite3');
+
 const db_products = new DBConnector('products',MariaDBOptions.options);
 const db_messages = new DBConnector('messages',SQLite3Options.options);
 
@@ -32,7 +34,17 @@ const connectedUsers = []
 io.on('connection',async socket=>{
     console.log("Client connected");
     connectedUsers.push({id:socket.id,name:"",email:"",profilePicture:"https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg"})
-    const products = await db_products.getAll();
+    
+    //------------Entrega desafio Faker------------
+    let products = []
+    try{
+        const res = await axios.get('http://localhost:8080/api/products-test');
+        products = res.data;
+    }
+    catch(err){
+        console.log("Unable to get product list",err);
+    }
+    //------------Entrega desafio Faker------------
 
     // socket.emit envia unicamente al usuario que hace connection
     socket.emit('products',products);
@@ -122,6 +134,23 @@ app.get('/chat', async (req,res)=>{
     console.log('GET /chat');
     res.render("chat.pug");
 });
+
+//------------Entrega desafio Faker------------
+app.get('/api/products-test', async (req,res)=>{
+    
+    console.log('GET /api/products-test');
+    const products = []
+    for (let i = 0; i < 5; i++) {
+        products.push({
+            title:faker.commerce.productName(),
+            price: Math.round(Math.random()*1000),
+            thumbnail:faker.image.food(50,50)
+        });        
+    }
+    res.send(products);
+});
+//------------Entrega desafio Faker------------
+
 
 const PORT = 8080;
 server.listen(PORT, (err) => {
