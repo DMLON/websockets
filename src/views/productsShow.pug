@@ -2,8 +2,15 @@ extends layoutFrame.pug
 
 block content 
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous")
-    div(class=["d-flex", "flex-column"])
-        button(class="btn btn-secondary" id="btn-chat" onclick="window.location.href='/chat';") Go to chat
+    div(class=["d-flex", "flex-column","mt-2"])
+        if loggedIn
+            h2.green Welcome !{username}
+            button(class=["btn btn-primary","mb-2"] id="btn-logout") Logout
+        else 
+            h2.black Login 
+            button(class=["btn btn-primary","mb-2"] id="btn-login" onclick="window.location.href='/auth/login'") Login
+
+        button(class="btn btn-secondary" id="btn-chat" onclick="window.location.href='/chat'") Go to chat
         h1 Post a new product 
         label(for="name") Title
         input(type="text" name="title" id="title")
@@ -13,6 +20,8 @@ block content
         input(type="text" name="thumbnail" id="thumbnail")
         div(id="buttons" class="p-3")
             button(class="btn btn-primary" id="btn-post") Send
+
+    
 
     div(class="d-flex flex-column justify-content-center align-items-center")
         h1 Products List 
@@ -25,5 +34,5 @@ block content
             tbody(id="productsTable")
     
     
-    script(src="/js/sockets.js")
-        
+    script(src="/js/socket.js")
+    script(src="/js/auth.js")

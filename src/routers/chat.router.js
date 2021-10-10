@@ -13,6 +13,8 @@ module.exports = function (io,db_messages) {
             profilePicture: "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg",
         });
 
+        // console.log(socket.request.session);
+
         socket.emit("users", connectedUsers);
 
         // ----- MESSAGES -----
@@ -63,6 +65,7 @@ module.exports = function (io,db_messages) {
             if (index > -1) {
                 connectedUsers.splice(index, 1);
             }
+            io.emit("users", connectedUsers);
         });
     });
 

@@ -2,6 +2,9 @@ module.exports = function (io, db_products) {
     const express = require("express");
     const router = express.Router();
     const axios = require('axios');
+
+    let loggedIn = false;
+    let username = null;
     io.on("connection", async (socket) => {
         console.log("Client connected - Products");
 
@@ -30,11 +33,20 @@ module.exports = function (io, db_products) {
             const products = await db_products.getAll();
             io.emit("products", products);
         });
+
+        loggedIn = socket.request.session.loggedIn? true: false;
+        username = socket.request.session.username ? socket.request.session.username : null;
     });
+
+    
 
     router.get("/", async (req, res) => {
         console.log("GET /products");
-        res.render("productsShow.pug");
+        // logged In y username no llegan a setearse antes del llamado del get, acá para mi deberia haber un timer, o un semaforo para prevenir
+        // que aparezca cualqueir cosa
+        console.log(loggedIn)
+        console.log(username)
+        res.render("productsShow.pug",{loggedIn,username});
     });
 
     return router;
