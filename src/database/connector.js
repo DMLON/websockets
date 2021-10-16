@@ -241,7 +241,7 @@ async function test_dbs(){
         message: "asdasd",
         date: "2021-08-30T20:45:52.588Z",
         name: "dddd",
-        profilePicture: "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg",
+        profilePhoto: "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg",
         email: "dddd"
     }
     const tester_messages = new DBTester('messages','./options/SQLite3.js',generateMessages,6,test_message);

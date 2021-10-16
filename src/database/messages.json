@@ -3,42 +3,42 @@
         "message": "hola",
         "date": "2021-08-28T22:01:26.556Z",
         "name": "Damian ",
-        "profilePicture": "https://www.collinsdictionary.com/images/full/duck_170690246.jpg",
+        "profilePhoto": "https://www.collinsdictionary.com/images/full/duck_170690246.jpg",
         "email": "damiandeza@gmail.com"
     },
     {
         "message": "",
         "date": "2021-08-28T22:01:30.204Z",
         "name": "Damian ",
-        "profilePicture": "https://www.collinsdictionary.com/images/full/duck_170690246.jpg",
+        "profilePhoto": "https://www.collinsdictionary.com/images/full/duck_170690246.jpg",
         "email": "damiandeza@gmail.com"
     },
     {
         "message": "Jeje",
         "date": "2021-08-28T22:02:10.054Z",
         "name": "Pablo",
-        "profilePicture": "https://thumbs-prod.si-cdn.com/pCDKPyJI6L9ZueCJJzdcsZ9D-t0=/fit-in/1600x0/https://public-media.si-cdn.com/filer/a3/3f/a33f8ee0-bfee-4cce-9a13-f9388c5323c0/42-55375529.jpg",
+        "profilePhoto": "https://thumbs-prod.si-cdn.com/pCDKPyJI6L9ZueCJJzdcsZ9D-t0=/fit-in/1600x0/https://public-media.si-cdn.com/filer/a3/3f/a33f8ee0-bfee-4cce-9a13-f9388c5323c0/42-55375529.jpg",
         "email": "d4gaming@hotmail.com"
     },
     {
         "message": "",
         "date": "2021-08-28T22:07:56.293Z",
         "name": "Damian",
-        "profilePicture": "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg",
+        "profilePhoto": "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg",
         "email": "damiandeza@gmail.com"
     },
     {
         "message": "Hola mundo!",
         "date": "2021-08-28T22:08:37.597Z",
         "name": "Damian Deza",
-        "profilePicture": "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg",
+        "profilePhoto": "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg",
         "email": "damiandeza@gmail.com"
     },
     {
         "message": "asdasd",
         "date": "2021-08-30T20:45:52.588Z",
         "name": "dddd",
-        "profilePicture": "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg",
+        "profilePhoto": "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg",
         "email": "dddd"
     }
 ]

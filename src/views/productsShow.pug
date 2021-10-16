@@ -2,37 +2,43 @@ extends layoutFrame.pug
 
 block content 
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous")
-    div(class=["d-flex", "flex-column","mt-2"])
-        if loggedIn
-            h2.green Welcome !{username}
-            button(class=["btn btn-primary","mb-2"] id="btn-logout") Logout
-        else 
+    if !loggedIn
+        div(class=["d-flex", "flex-column","mt-2"])
             h2.black Login 
             button(class=["btn btn-primary","mb-2"] id="btn-login" onclick="window.location.href='/auth/login'") Login
+        
+    else 
+        div(class=["d-flex", "flex-column","mt-2"])
+            h2.green Welcome !{username}
+            button(class=["btn btn-primary","mb-2"] id="btn-logout") Logout
 
-        button(class="btn btn-secondary" id="btn-chat" onclick="window.location.href='/chat'") Go to chat
-        h1 Post a new product 
-        label(for="name") Title
-        input(type="text" name="title" id="title")
-        label(for="price") Price
-        input(type="text" name="price" id="price")
-        label(for="thumbnail") Thumbnail
-        input(type="text" name="thumbnail" id="thumbnail")
-        div(id="buttons" class="p-3")
-            button(class="btn btn-primary" id="btn-post") Send
+            button(class="btn btn-secondary" id="btn-chat" onclick="window.location.href='/chat'") Go to chat
+            h1 Post a new product 
+            label(for="name") Title
+            input(type="text" name="title" id="title")
+            label(for="price") Price
+            input(type="text" name="price" id="price")
+            label(for="thumbnail") Thumbnail
+            input(type="text" name="thumbnail" id="thumbnail")
+            div(id="buttons" class="p-3")
+                button(class="btn btn-primary" id="btn-post") Send
 
+        div(class="d-flex flex-column justify-content-center align-items-center")
+            h1 Products List 
+            table(class="table table-striped mx-auto" style="max-width: 500px;")
+                thead
+                    tr
+                        th Nombre
+                        th Precio
+                        th Foto
+                    each product in products
+                        tr 
+                            td=product.title
+                            td=product.price
+                            td
+                                img(style="width=80px" src=product.thumbnail)
+                tbody(id="productsTable")
     
-
-    div(class="d-flex flex-column justify-content-center align-items-center")
-        h1 Products List 
-        table(class="table table-striped mx-auto" style="max-width: 500px;")
-            thead
-                tr
-                    th Nombre
-                    th Precio
-                    th Foto
-            tbody(id="productsTable")
     
-    
-    script(src="/js/socket.js")
+    script(src="/js/products.js")
     script(src="/js/auth.js")

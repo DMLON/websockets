@@ -15,7 +15,7 @@ const formatMessage = (messageInfo) =>{
     return `
     <li class=".left.clearfix">
         <span class="chat-img1 pull-left">
-            <img class="img-circle" src="${messageInfo.profilePicture}" alt="User Avatar"></img>
+            <img class="img-circle" src="${messageInfo.profilePhoto}" alt="User Avatar"></img>
         </span>
         <div class="chat-body1.clearfix"> 
             <p>
@@ -119,7 +119,7 @@ document.querySelector("#change-email-btn").addEventListener("click", async (eve
 // Change photo
 document.querySelector("#change-photo-btn").addEventListener("click", async (event) => {
     event.preventDefault();
-    const data = document.querySelector("#profilePicture");
+    const data = document.querySelector("#profilePhoto");
 
     try{
         socket.emit('changePicture',data.value);

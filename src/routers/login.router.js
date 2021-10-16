@@ -1,33 +1,37 @@
-module.exports = function (io) {
-    const express = require("express");
-    const router = express.Router();
+const express = require("express");
+const router = express.Router();
 
-    io.on("connection", function(socket) {
-        // Accept a login event with user's data
-        socket.on("login", function(userdata) {
-            socket.request.session.loggedIn = true;
-            socket.request.session.username = userdata.username
-            socket.request.session.save();
-            console.log(socket.request.session);
-        });
-        socket.on("logout", function(userdata) {
-            // Eliminar la sesion tal vez?
-            socket.request.session.loggedIn = false;
-            socket.request.session.username = null;
-            socket.request.session.save();
-        });        
-    });
+router.get("/login", (req, res) => {
+    const ip = req.clientIp;
+    console.log(`[${ip}] - GET /auth/login`);
+    res.render("login.pug");
+});
 
-    router.get("/login",(req,res)=>{
-        console.log("GET /auth/login");
-        res.render("login.pug");
-    });
+router.post("/login", (req, res) => {
+    const ip = req.clientIp;
+    console.log(`[${ip}] - POST /auth/login`);
+    const {username,email,profilePhoto} = req.body;
+    req.session.loggedIn = true;
+    const user = {
+        username,
+        email,
+        profilePhoto
+    }
+    req.session.user = user;
+    res.send({error:false,status: "ok"});
+});
 
-    router.get("/logout",(req,res)=>{
-        console.log("GET /auth/logout");
-        res.render("logout.pug");
-    });
+router.post("/logout", (req, res) => {
+    const ip = req.clientIp;
+    console.log(`[${ip}] - POST /auth/logout`);
+    req.session.loggedIn = false;
+    req.session.user = null;
+    req.session.destroy(err=>{
+        let result = null;
+        if(!err) result = {error:false,status:"ok",redirectURL:"/products"}
+        else result = {error:true,status:err}
+        res.send(result);
+    })
+});
 
-    return router;
-}
-
+module.exports = router;

@@ -77,7 +77,7 @@ const generateMessages = async () =>{
             table.increments('id')
             table.string('message')
             table.timestamp('date')
-            table.string('profilePicture')
+            table.string('profilePhoto')
             table.string('email')
             table.string('name')
         });
