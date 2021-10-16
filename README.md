@@ -9,3 +9,7 @@ This repository contains the source code for an app that uses socket.io as a cha
 Live demo on Glitch website
 
 https://chat-app-products.glitch.me/chat
+
+To generate the tables run the following command from root folder:
+
+`node src\database\generateTables.js`

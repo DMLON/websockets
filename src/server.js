@@ -48,7 +48,7 @@ const sessionMiddleware = session({
     saveUninitialized: true,
     secret: SECRET,
     cookie: {
-        maxAge: 50 * 1000, // 5 seg
+        maxAge: 5 * 1000, // 5 seg
     },
     rolling: true,
 });
@@ -72,7 +72,7 @@ app.use("/api", router_faker);
 
 
 app.get("/", (req, res) => {
-    res.redirect("/chat");
+    res.redirect("/products");
 });
 
 const PORT = process.env.port || 8080;

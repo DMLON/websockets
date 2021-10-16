@@ -30,30 +30,25 @@ block content
                                         li
                                             a(href='#') Profile
                                         li
-                                            a(href='#') Logout
+                                            a(href='/auth/logout') Logout
                         .chat_area
                             ul.list-unstyled(id="messages-container")
-                                
+                                for messageInfo in messages 
+                                    li
+                                        span.chat-img1.pull-left
+                                            img.img-circle(src=(messageInfo.profilePhoto) alt='User Avatar')
+                                    .chat-body1
+                                        p
+                                            b !{messageInfo.name}
+                                            | : !{messageInfo.message}
+                                        .chat_time.pull-right  !{formatDate(messageInfo.date)}
+
                         .message_write
                             div.message-input-container
                                 input.form-control(placeholder='type a message' id="message-content")
                                 button.pull-right.btn.btn-success(id="send-message-btn")
                                     | Send
-                            div(style="margin-top:20px")
-                                .col-sm-12 
-                                    .col-sm-4 
-                                        .form-group.form-inline 
-                                            input.form-control(placeholder='Email' id="email")
-                                            button.btn.btn-primary(id="change-email-btn") Set Email
-                                        .form-group.form-inline 
-                                            input.form-control(placeholder='Name' id="name")
-                                            button.btn.btn-primary(id="change-name-btn") Set Name
-                                        .form-group.form-inline 
-                                            input.form-control(placeholder='Profile Photo' id="profilePhoto")
-                                            button.btn.btn-primary(id="change-photo-btn") Set Photo
-                                    .col-sm-8 
-                                        h3 Connected Users
-                                        p(id="users")
+
 
 
                             
