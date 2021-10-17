@@ -1,13 +1,38 @@
 const express = require("express");
-const router = express.Router();
+const router_login = express.Router();
 
-router.get("/login", (req, res) => {
+const passport = require("passport");
+const FacebookStrategy = require("passport-facebook").Strategy;
+
+
+const dotenv = require("dotenv");
+dotenv.config();
+
+const { FACEBOOK_APP_SECRET, FACEBOOK_APP_ID } = process.env;
+
+passport.use(new FacebookStrategy({
+    clientID:FACEBOOK_APP_ID,
+    clientSecret:FACEBOOK_APP_SECRET,
+    callbackURL:"/auth/facebook/callback",
+    profileFields: ['id', 'displayName', 'photos', 'emails'],
+    scope: ['email']
+    },
+    function(accessToken,refreshToken,profile,done){
+        done(null,profile);
+        //Asignar profile a variable
+    }));
+
+passport.serializeUser( (user, cb) => cb( null, user ) );
+
+passport.deserializeUser( (id, cb) => cb( null, id ) );
+
+router_login.get("/login", (req, res) => {
     const ip = req.clientIp;
     console.log(`[${ip}] - GET /auth/login`);
     res.render("login.pug");
 });
 
-router.post("/login", (req, res) => {
+router_login.post("/login", (req, res) => {
     const ip = req.clientIp;
     console.log(`[${ip}] - POST /auth/login`);
     const {username,email,profilePhoto} = req.body;
@@ -21,7 +46,7 @@ router.post("/login", (req, res) => {
     res.send({error:false,status: "ok"});
 });
 
-router.post("/logout", (req, res) => {
+router_login.post("/logout", (req, res) => {
     const ip = req.clientIp;
     console.log(`[${ip}] - POST /auth/logout`);
     req.session.loggedIn = false;
@@ -34,4 +59,8 @@ router.post("/logout", (req, res) => {
     })
 });
 
-module.exports = router;
+router_login.get("/facebook",passport.authenticate("facebook"));
+
+router_login.get("/facebook/callback",passport.authenticate("facebook",{successRedirect:"/",failureRedirect:"/auth/login"}));
+
+module.exports = {router_login,passport};

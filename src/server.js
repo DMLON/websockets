@@ -1,7 +1,7 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
-const { MONGODB_URI, SECRET } = process.env;
+const { MONGODB_URI, SECRET, NODE_ENV } = process.env;
 
 const express = require("express");
 var path = require("path");
@@ -10,7 +10,6 @@ const requestIp = require('request-ip');
 const cookieParser = require("cookie-parser");
 
 const app = express();
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -49,12 +48,16 @@ const sessionMiddleware = session({
     secret: SECRET,
     cookie: {
         maxAge: 5 * 1000, // 5 seg
+        sameSite: NODE_ENV == 'development' ? 'lax' : 'strict', 
     },
     rolling: true,
 });
 
 app.use(sessionMiddleware);
 // ------------- End Express Configuration ----------------
+
+const {router_login, passport} = require("./routers/login.router");
+app.use(passport.initialize()).use(passport.session());
 
 // Routers
 const router_chat = require("./routers/chat.router")(db_messages);
@@ -63,17 +66,20 @@ app.use("/chat", router_chat);
 const router_products = require("./routers/products.router")(db_products);
 app.use("/products", router_products);
 
-const router_login = require("./routers/login.router");
+
 app.use("/auth", router_login);
 
 
 const {router_faker} = require("./routers/faker.products.router");
+const { userInfo } = require("os");
 app.use("/api", router_faker);
 
 
 app.get("/", (req, res) => {
     res.redirect("/products");
 });
+
+
 
 const PORT = process.env.port || 8080;
 app.listen(PORT, (err) => {
