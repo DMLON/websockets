@@ -47,7 +47,7 @@ const sessionMiddleware = session({
     saveUninitialized: true,
     secret: SECRET,
     cookie: {
-        maxAge: 5 * 1000, // 5 seg
+        maxAge: 15 * 1000, // 5 seg
         sameSite: NODE_ENV == 'development' ? 'lax' : 'strict', 
     },
     rolling: true,

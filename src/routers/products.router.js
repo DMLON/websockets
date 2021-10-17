@@ -2,10 +2,10 @@ module.exports = function ( db_products) {
     const express = require("express");
     const router = express.Router();
     const {getRandomProducts} = require("./faker.products.router")
-    
+    const passportToStandardUser = require("../middlewares/passportToStandard")
     let products = getRandomProducts();
 
-    router.get("/", async (req, res) => {
+    router.get("/", passportToStandardUser,async (req, res) => {
         const ip = req.clientIp;
         console.log(`[${ip}] - GET /products`);
         const {loggedIn,user} = req.session
@@ -17,7 +17,7 @@ module.exports = function ( db_products) {
         res.render("productsShow.pug",{loggedIn,username:user?.username,products});
     });
 
-    router.post("/", async (req, res) => {
+    router.post("/", passportToStandardUser,async (req, res) => {
         const ip = req.clientIp;
         console.log(`[${ip}] - POST /products`);
 

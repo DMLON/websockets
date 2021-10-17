@@ -49,8 +49,6 @@ router_login.post("/login", (req, res) => {
 router_login.post("/logout", (req, res) => {
     const ip = req.clientIp;
     console.log(`[${ip}] - POST /auth/logout`);
-    req.session.loggedIn = false;
-    req.session.user = null;
     req.session.destroy(err=>{
         let result = null;
         if(!err) result = {error:false,status:"ok",redirectURL:"/products"}

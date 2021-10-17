@@ -1,7 +1,7 @@
 module.exports = function (db_messages) {
     const express = require("express");
     const router = express.Router();
-
+    const passportToStandardUser = require("../middlewares/passportToStandard")
     function formatDate(date) {
         date_temp = new Date(date);
         hours = date_temp.getHours();
@@ -9,7 +9,7 @@ module.exports = function (db_messages) {
         return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
     }
 
-    router.get("/", async (req, res) => {
+    router.get("/", passportToStandardUser,async (req, res) => {
         const ip = req.clientIp;
         console.log(`[${ip}] - GET /chat`);
         const loggedIn = req.session.loggedIn;
@@ -26,7 +26,7 @@ module.exports = function (db_messages) {
         
     });
 
-    router.post("/", async (req, res) => {
+    router.post("/", passportToStandardUser,async (req, res) => {
         const ip = req.clientIp;
         console.log(`[${ip}] - POST /chat`);
         const loggedIn = req.session.loggedIn;

@@ -15,5 +15,6 @@ block content
         div(id="buttons" class="p-3")
             button(class="btn btn-primary" id="btn-login") Login
         div(id="buttons" class="p-3")
-            button(class="btn btn-primary" id="btn-login" href="/auth/facebook") Login with Facebook
+            a(href="/auth/facebook")
+                button(class="btn btn-primary" id="btn-login" ) Login with Facebook
     script(src="/js/auth.js")
