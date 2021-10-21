@@ -163,20 +163,27 @@ const generateUsertable = async ()=>{
 }
 
 const generateTablesAll = async ()=>{
-    // try{
-    //     await generateProducts();
-    // }
-    // catch(err){
-    //     console.log("Could not generate products table");
-    // }
+    try{
+        await generateProducts();
+    }
+    catch(err){
+        console.log("Could not generate products table");
+    }
     
-    // try{
-    //     await generateMessages();
-    // }
-    // catch(err){
-    //     console.log("Could not generate messages table");
-    // }
-    await generateUsertable();
+    try{
+        await generateMessages();
+    }
+    catch(err){
+        console.log("Could not generate messages table");
+    }
+
+    try{
+        await generateUsertable();
+    }
+    catch(err){
+        console.log("Could not generate messages table");
+    }
+    
 }
 
 generateTablesAll();
