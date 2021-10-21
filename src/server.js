@@ -3,11 +3,14 @@ dotenv.config();
 
 const { MONGODB_URI, SECRET, NODE_ENV } = process.env;
 
-const express = require("express");
-var path = require("path");
-const requestIp = require('request-ip');
-
-const cookieParser = require("cookie-parser");
+const express =         require("express");
+const path =            require("path");
+const requestIp =       require('request-ip');
+const cookieParser =    require("cookie-parser");
+const flash =           require('connect-flash');
+// Session:
+const session =         require("express-session");
+const MongoSession =    require("connect-mongodb-session");
 
 const app = express();
 
@@ -16,23 +19,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cookieParser());
 app.use(requestIp.mw())
+app.use(flash());
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
-
-// ------------- DB Config -------------
-const { DBConnector } = require("./database/connector");
-const MariaDBOptions = require("./database/options/mariaDB");
-const SQLite3Options = require("./database/options/SQLite3");
-
-const db_products = new DBConnector("products", MariaDBOptions.options);
-const db_messages = new DBConnector("messages", SQLite3Options.options);
-
-// ------------- End DB Config -------------
-
-// Session:
-const session = require("express-session");
-const MongoSession = require("connect-mongodb-session");
 
 const MongoStore = MongoSession(session);
 
@@ -60,10 +50,10 @@ const {router_login, passport} = require("./routers/login.router");
 app.use(passport.initialize()).use(passport.session());
 
 // Routers
-const router_chat = require("./routers/chat.router")(db_messages);
+const {router_chat} = require("./routers/chat.router");
 app.use("/chat", router_chat);
 
-const router_products = require("./routers/products.router")(db_products);
+const {router_products} = require("./routers/products.router");
 app.use("/products", router_products);
 
 
@@ -71,7 +61,6 @@ app.use("/auth", router_login);
 
 
 const {router_faker} = require("./routers/faker.products.router");
-const { userInfo } = require("os");
 app.use("/api", router_faker);
 
 

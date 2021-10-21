@@ -127,24 +127,75 @@ const generateMessages = async () =>{
     }
 }
 
+const generateUsertable = async ()=>{
+    const {options} = require('./options/SQLite3');
+    console.log(options)
+    const knex = require('knex')(options);
+
+    try{
+        await knex.schema.dropTable('users');
+    }catch(err){
+        console.log("Could not delete messages table")
+    }
+    await knex.schema.createTable('users', (table) => {
+        table.increments('id')
+        table.string('username')
+        table.string('email')
+        table.string('password')
+        table.string('profilePhoto')
+        table.string('authMethod')
+        table.string('firstName')
+        table.string('lastName')
+    });
+
+
+    await knex
+        .from('users')
+        .insert({
+            username:"admin",
+            email:"admin@admin.com",
+            password:"admin",
+            profilePhoto:"none",
+            authMethod:"local",
+            firstName:"admin",
+            lastName:"admin"
+        })
+}
+
 const generateTablesAll = async ()=>{
-    try{
-        await generateProducts();
-    }
-    catch(err){
-        console.log("Could not generate products table");
-    }
+    // try{
+    //     await generateProducts();
+    // }
+    // catch(err){
+    //     console.log("Could not generate products table");
+    // }
     
-    try{
-        await generateMessages();
-    }
-    catch(err){
-        console.log("Could not generate messages table");
-    }
+    // try{
+    //     await generateMessages();
+    // }
+    // catch(err){
+    //     console.log("Could not generate messages table");
+    // }
+    await generateUsertable();
 }
 
 generateTablesAll();
 
+
+
+async function test(){
+    const {options} = require('./options/SQLite3');
+    console.log(options)
+    const knex = require('knex')(options);
+
+    const user = await knex
+        .from('users')
+        .where({username:"admin"})
+
+    console.log(user[0]);
+}
+
+test();
 module.exports = {
     generateMessages,
     generateProducts
