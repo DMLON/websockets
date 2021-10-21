@@ -37,7 +37,7 @@ module.exports = (passport, db_users) => {
                 const splittedName = profile.displayName.split(" ");
                 const newUser = {
                     username: profile.displayName,
-                    password: createHash("facebook"),
+                    password: "",
                     email: email,
                     profilePhoto: profile.photos[0]?.value,
                     firstName: splittedName[0],
