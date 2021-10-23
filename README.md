@@ -13,3 +13,24 @@ https://chat-app-products.glitch.me/chat
 To generate the tables run the following command from root folder:
 
 `node src\database\generateTables.js`
+
+
+## Running the server
+
+As a default the server is hosted on port 8080, can be changed with the command line using double dashes as seen below
+
+Start the server in dev mode (Nodemon) with:
+
+`npm run start:dev -- --port xxxx`
+
+Or the server normally on node with:
+
+`npm run start -- --port xxxx`
+
+## Stress testing
+
+Test the server by going to:
+
+`http://localhost:8080/api/randoms?cant=500000000`
+
+Then using the website as normal

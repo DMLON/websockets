@@ -60,18 +60,23 @@ app.use("/products", router_products);
 app.use("/auth", router_login);
 
 
-const {router_faker} = require("./routers/faker.products.router");
-app.use("/api", router_faker);
+const router_api = require("./routers/backend/api.backend.router");
+app.use("/api", router_api);
 
+// use info router
+const router_info = require("./routers/info.router");
+app.use("/info", router_info);
 
 app.get("/", (req, res) => {
     res.redirect("/products");
 });
 
 
-
-const PORT = process.env.port || 8080;
+// use minimist to load the port number from command line
+const argv = require('minimist')(process.argv.slice(2));
+const PORT = argv.port || 8080;
 app.listen(PORT, (err) => {
     if (err) throw new Error(`Error creating server ${err}`);
     console.log(`Server started on ${PORT}`);
 });
+

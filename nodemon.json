@@ -1,3 +1,6 @@
 {
-    "ignore": ["README","products.json","messages.json"]
+    "ignore": ["README","products.json","messages.json"],
+    "events":{
+        "exit": "node src/server.js --port 8080"
+    }
 }

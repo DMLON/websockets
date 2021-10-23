@@ -1,11 +1,6 @@
-.main-error-container{
-    height: 100vh;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-}
 
-.main-error-container img{
+
+img{
     width: 100px;
     height: 100px;
 }

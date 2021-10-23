@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getRandomProducts } = require("./faker.products.router");
+const { getRandomProducts } = require("./backend/faker.products.router");
 const passportToStandardUser = require("../middlewares/passportToStandard");
 const { db_products } = require("../database/databases");
 
