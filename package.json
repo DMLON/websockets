@@ -2,12 +2,13 @@
   "name": "websockets_example",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "src/init.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "debug": "nodemon --inspect src/server.js --config nodemon.json",
     "start:dev": "nodemon --delay 500ms --config nodemon.json",
-    "start": "node src/server.js"
+    "start": "node src/init.js --mode FORK",
+    "start:cluster": "node src/init.js --mode CLUSTER"
   },
   "author": "",
   "license": "ISC",

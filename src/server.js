@@ -2,6 +2,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const { MONGODB_URI, SECRET, NODE_ENV } = process.env;
+const argv = require('minimist')(process.argv.slice(2));
 
 const express =         require("express");
 const path =            require("path");
@@ -72,11 +73,9 @@ app.get("/", (req, res) => {
 });
 
 
-// use minimist to load the port number from command line
-const argv = require('minimist')(process.argv.slice(2));
+
 const PORT = argv.port || 8080;
 app.listen(PORT, (err) => {
     if (err) throw new Error(`Error creating server ${err}`);
     console.log(`Server started on ${PORT}`);
 });
-
