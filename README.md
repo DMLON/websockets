@@ -34,3 +34,15 @@ Test the server by going to:
 `http://localhost:8080/api/randoms?cant=500000000`
 
 Then using the website as normal
+
+## Starting the server
+
+### Forever
+
+`forever -w start src/init.js`
+
+### PM2
+
+`pm2 start src/init.js --name="Server1" --watch -- --port 8081`
+
+`pm2 start src/init.js --name="Server1" --watch -i max -- --port 8081`
