@@ -46,3 +46,7 @@ Then using the website as normal
 `pm2 start src/init.js --name="Server1" --watch -- --port 8081`
 
 `pm2 start src/init.js --name="Server1" --watch -i max -- --port 8081`
+
+## Starting server with 4 api backends and 1 front
+
+Run `run_server.sh` then execute the nginx server with the file `desafio15.pl` as the site-enabled
