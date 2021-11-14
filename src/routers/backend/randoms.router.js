@@ -9,7 +9,7 @@ router_randoms.get("/", (req, res) => {
     if (!Number.isInteger(cant)) {
         cant = 1e8;
     }
-
+    console.log("GET /api/randoms")
     //generate a fork that calls the random function
     const randomFork = fork("./src/utils/random.generator.js");
     randomFork.on("message", (respuestaChild) => {
