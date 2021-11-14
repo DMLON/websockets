@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passportToStandardUser = require("../middlewares/passportToStandard");
 const { db_messages } = require("../database/databases");
+const {loggerWarnings,loggerErrors ,loggerDefault } = require('../utils/loggers');
 function formatDate(date) {
     date_temp = new Date(date);
     hours = date_temp.getHours();
@@ -11,10 +12,11 @@ function formatDate(date) {
 
 router.get("/", passportToStandardUser, async (req, res) => {
     const ip = req.clientIp;
-    console.log(`[${ip}] - GET /chat`);
+    loggerDefault.info(`[${ip}] - GET /chat`);
     const loggedIn = req.session.loggedIn;
 
     if (!loggedIn) {
+        loggerDefault.info("User already logged");
         res.redirect("/");
         return;
     }
@@ -27,10 +29,11 @@ router.get("/", passportToStandardUser, async (req, res) => {
 
 router.post("/", passportToStandardUser, async (req, res) => {
     const ip = req.clientIp;
-    console.log(`[${ip}] - POST /chat`);
+    loggerDefault.info(`[${ip}] - POST /chat`);
     const loggedIn = req.session.loggedIn;
     const { message, date } = req.body;
     if (!loggedIn) {
+        loggerErrors.error("User not logged");
         res.send({ error: true, status: "You are not logged in!", redirectURL: "/products" });
         return;
     }
@@ -39,7 +42,7 @@ router.post("/", passportToStandardUser, async (req, res) => {
         const id = await db_messages.save({ message, date: date, name: user.username, profilePhoto: user.profilePhoto, email: user.email }); //     // console.log('POST /products');
     } catch (error) {
         res.send({ error: true, status: "DB error" });
-        console.log(error);
+        loggerErrors.error(error);
         return;
     }
     res.send({ error: false, status: "ok", redirectURL: "/chat" });

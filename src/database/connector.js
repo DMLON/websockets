@@ -1,5 +1,5 @@
 
-
+const {loggerWarnings,loggerErrors ,loggerDefault } = require('../utils/loggers');
 class DBConnector{
     constructor(table,config){
         this.knex = require('knex')(config);
@@ -14,7 +14,7 @@ class DBConnector{
             return id[0];
         }
         catch(err){
-            console.log(err);
+            loggerErrors.error(err);
             throw err;
         }
     }
@@ -28,7 +28,7 @@ class DBConnector{
             return obj[0];
         }
         catch(err){
-            console.log(err);
+            loggerErrors.error(err);
             throw err;
         }
     }
@@ -41,7 +41,7 @@ class DBConnector{
             return objs;
         }
         catch(err){
-            console.log(err);
+            loggerErrors.error(err);
             throw err;
         }
     }
@@ -55,7 +55,7 @@ class DBConnector{
             return objs;
         }
         catch(err){
-            console.log(err);
+            loggerErrors.error(err);
             throw err;
         }
     }
@@ -68,7 +68,7 @@ class DBConnector{
             return objs;
         }
         catch(err){
-            console.log(err);
+            loggerErrors.error(err);
             throw err;
         }
     }

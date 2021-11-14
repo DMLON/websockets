@@ -12,6 +12,8 @@ const flash =           require('connect-flash');
 // Session:
 const session =         require("express-session");
 const MongoSession =    require("connect-mongodb-session");
+const compression =     require("compression");
+const {loggerWarnings,loggerErrors ,loggerDefault } = require('./utils/loggers');
 
 const app = express();
 
@@ -21,6 +23,7 @@ app.use(express.static("public"));
 app.use(cookieParser());
 app.use(requestIp.mw())
 app.use(flash());
+app.use(compression());
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
@@ -69,6 +72,7 @@ const router_info = require("./routers/info.router");
 app.use("/info", router_info);
 
 app.get("/", (req, res) => {
+    loggerWarnings.warn("Redirecting to /products");
     res.redirect("/products");
 });
 
@@ -76,6 +80,6 @@ app.get("/", (req, res) => {
 
 const PORT = argv.port || 8080;
 app.listen(PORT, (err) => {
-    if (err) throw new Error(`Error creating server ${err}`);
-    console.log(`Server started on ${PORT}`);
+    if (err){ loggerErrors.error(`Error creating server ${err}`); return;}
+    loggerDefault.info(`Server started on ${PORT}`);
 });

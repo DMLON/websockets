@@ -2,6 +2,8 @@ const express = require("express");
 const router_faker = express.Router();
 const faker = require("faker");
 
+const {loggerWarnings,loggerErrors ,loggerDefault } = require('../../utils/loggers');
+
 const getRandomProducts = (amount=5)=>{
     const products = [];
     for (let i = 0; i < amount; i++) {
@@ -17,7 +19,7 @@ const getRandomProducts = (amount=5)=>{
 //------------Entrega desafio Faker------------
 router_faker.get("/", async (req, res) => {
     const ip = req.clientIp;
-    console.log(`[${ip}] - GET /api/products-test`);
+    loggerDefault.info(`[${ip}] - GET /api/products-test`);
     res.send(getRandomProducts());
 });
 //------------Entrega desafio Faker------------

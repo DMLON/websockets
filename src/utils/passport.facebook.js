@@ -1,6 +1,7 @@
+
 module.exports = (passport, db_users) => {
     const FacebookStrategy = require("@passport-next/passport-facebook").Strategy;
-
+    const {loggerWarnings,loggerErrors ,loggerDefault } = require('./loggers');
     const dotenv = require("dotenv");
     dotenv.config();
 
@@ -25,12 +26,12 @@ module.exports = (passport, db_users) => {
                     user = await db_users.knex.from("users").where({ email: email });
                     user = user[0];
                 } catch (err) {
-                    console.log("Error in SignUp: " + err);
+                    loggerErrors.error("Error in SignUp: " + err);
                     return done(err);
                 }
 
                 if (user) {
-                    console.log("User already exists");
+                    loggerErrors.error("User already exists");
                     // here it's good that the user exists
                     return done(null, user);
                 }
@@ -48,11 +49,11 @@ module.exports = (passport, db_users) => {
                 try {
                     await db_users.save(newUser);
                 } catch (err) {
-                    console.log("Error in Saving user: " + err);
+                    loggerErrors.error("Error in Saving user: " + err);
                     return done(err);
                 }
-                console.log(newUser);
-                console.log("User Registration succesful");
+                loggerDefault.info(newUser);
+                loggerDefault.info("User Registration succesful");
                 return done(null, newUser);
             }
         )

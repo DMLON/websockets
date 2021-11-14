@@ -3,14 +3,16 @@ const router = express.Router();
 const { getRandomProducts } = require("./backend/faker.products.router");
 const passportToStandardUser = require("../middlewares/passportToStandard");
 const { db_products } = require("../database/databases");
+const {loggerWarnings,loggerErrors ,loggerDefault } = require('../utils/loggers');
 
 let products = getRandomProducts();
 
 router.get("/", passportToStandardUser, async (req, res) => {
     const ip = req.clientIp;
-    console.log(`[${ip}] - GET /products`);
+    loggerDefault.info(`[${ip}] - GET /products`);
     const { loggedIn, user } = req.session;
     if (!loggedIn) {
+        loggerErrors.error(`[${ip}] - GET /products - User not logged in`);
         res.render("productsShow.pug", { loggedIn, products: [] });
         return;
     }
@@ -20,10 +22,11 @@ router.get("/", passportToStandardUser, async (req, res) => {
 
 router.post("/", passportToStandardUser, async (req, res) => {
     const ip = req.clientIp;
-    console.log(`[${ip}] - POST /products`);
+    loggerDefault.info(`[${ip}] - POST /products`);
 
     const { loggedIn } = req.session;
     if (!loggedIn) {
+        loggerErrors.error(`[${ip}] - POST /products - Not logged in`);
         res.send({ error: true, status: "You are not logged in!" });
         return;
     }

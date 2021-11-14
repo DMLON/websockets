@@ -3,6 +3,9 @@ const argv = require('minimist')(process.argv.slice(2));
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 
+// get loggers
+const {loggerWarnings,loggerErrors ,loggerDefault } = require('./utils/loggers');
+
 if (argv.mode == "CLUSTER"){
     // server in cluster mode
     if (cluster.isMaster){
@@ -11,7 +14,7 @@ if (argv.mode == "CLUSTER"){
             cluster.fork();
         }
         cluster.on('exit', (worker, code, signal) => {
-            console.log(`worker ${worker.process.pid} died`);
+            loggerWarnings.warn(`worker ${worker.process.pid} died`);
         });
     }
     else{
@@ -23,7 +26,7 @@ else if (argv.mode == "FORK" || argv.mode == undefined){
     const child_process = require("child_process");
     const worker = child_process.fork("./src/server.js", [`--port=${argv.port || 8080}`]);
     worker.on("exit", (code, signal) => {
-        console.log(`worker ${worker.process.pid} died`);
+        loggerWarnings.warn(`worker ${worker.process.pid} died`);
     });
 }
     

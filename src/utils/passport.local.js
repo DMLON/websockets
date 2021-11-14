@@ -1,7 +1,9 @@
 const bcrypt = require("bcrypt");
 
 module.exports = (passport, db_users) => {
+    const {loggerWarnings,loggerErrors ,loggerDefault } = require('./loggers');
     const LocalStrategy = require("passport-local").Strategy;
+    
     function isValidPassword(user, password) {
         return bcrypt.compareSync(password, user.password);
     }
@@ -19,18 +21,18 @@ module.exports = (passport, db_users) => {
                 user = await db_users.knex.from("users").where({ username: username }).andWhere({ authMethod: "local" });
                 user = user[0];
             } catch (err) {
-                console.log("Error in login: " + err);
+                loggerErrors.error("Error in login: " + err);
                 return done(err);
             }
             if (!user) {
                 const error = "User not found with username " + username;
-                console.log(error);
+                loggerErrors.error(error);
                 return done(error, false);
             }
 
             if (!isValidPassword(user, password)) {
                 const error = "Invalid Password";
-                console.log(error);
+                loggerErrors.error(error);
                 return done(error, false);
             }
             return done(null, user);
@@ -51,13 +53,13 @@ module.exports = (passport, db_users) => {
                     user = await db_users.knex.from("users").where({ username: username }).orWhere({ email: email });
                     user = user[0];
                 } catch (err) {
-                    console.log("Error in SignUp: " + err);
+                    loggerErrors.error("Error in SignUp: " + err);
                     return done(err);
                 }
 
                 if (user) {
                     const error = "User already exists";
-                    console.log(error);
+                    loggerErrors.error(error);
                     return done(error, false);
                 }
 
@@ -74,11 +76,11 @@ module.exports = (passport, db_users) => {
                 try {
                     await db_users.save(newUser);
                 } catch (err) {
-                    console.log("Error in Saving user: " + err);
+                    loggerErrors.error("Error in Saving user: " + err);
                     return done(err);
                 }
-                console.log(newUser);
-                console.log("User Registration succesful");
+                loggerDefault.info(newUser);
+                loggerDefault.info("User Registration succesful");
                 return done(null, newUser);
             }
         )

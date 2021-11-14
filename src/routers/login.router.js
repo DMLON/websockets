@@ -7,6 +7,9 @@ const { db_users } = require("../database/databases");
 passport = require('../utils/passport.facebook')(passport,db_users)
 passport = require('../utils/passport.local')(passport,db_users)
 
+const {loggerWarnings,loggerErrors ,loggerDefault } = require('../utils/loggers');
+
+
 passport.serializeUser((user, cb) => {
     return cb(null, user)
 });
@@ -17,13 +20,13 @@ passport.deserializeUser((id, cb) => {
 
 router_login.get("/login", (req, res) => {
     const ip = req.clientIp;
-    console.log(`[${ip}] - GET /auth/login`);
+    loggerDefault.info(`[${ip}] - GET /auth/login`);
     res.render("login.pug");
 });
 
 router_login.get("/signup", (req, res) => {
     const ip = req.clientIp;
-    console.log(`[${ip}] - GET /auth/signup`);
+    loggerDefault.info(`[${ip}] - GET /auth/signup`);
     res.render("signup.pug");
 });
 
@@ -34,7 +37,7 @@ router_login.post('/signup',passport.authenticate('local-signup',{successRedirec
 
 router_login.post("/logout", (req, res) => {
     const ip = req.clientIp;
-    console.log(`[${ip}] - POST /auth/logout`);
+    loggerDefault.info(`[${ip}] - POST /auth/logout`);
     req.session.destroy((err) => {
         let result = null;
         if (!err) result = { error: false, status: "ok", redirectURL: "/products" };
@@ -45,7 +48,7 @@ router_login.post("/logout", (req, res) => {
 
 router_login.get("/failLogin", (req, res) => {
     const ip = req.clientIp;
-    console.log(`[${ip}] - GET /auth/failLogin`);
+    loggerDefault.info(`[${ip}] - GET /auth/failLogin`);
     res.render("failLogin.pug", { errorMessage: req.flash("error") });
 });
 

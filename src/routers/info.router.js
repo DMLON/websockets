@@ -4,9 +4,12 @@
 const router = require('express').Router();
 const process = require('process');
 const {processInfo} = require('../utils/process.utils');
+const {loggerWarnings,loggerErrors ,loggerDefault } = require('../utils/loggers');
 
 
 router.get('/', (req, res) => {
+    const ip = req.clientIp;
+    loggerDefault.info(`[${ip}] - GET /info`);
     //Convert to readable text
     const info={
         "Arguments" : processInfo.commandLineArgs,
