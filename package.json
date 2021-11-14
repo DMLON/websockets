@@ -4,11 +4,16 @@
   "description": "",
   "main": "src/init.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "debug": "nodemon --inspect src/server.js --config nodemon.json",
     "start:dev": "nodemon --delay 500ms --config nodemon.json",
     "start": "node src/init.js --mode FORK",
-    "start:cluster": "node src/init.js --mode CLUSTER"
+    "start:cluster": "node src/init.js --mode CLUSTER",
+    "start:fork-profiler": "node --prof src/server.js",
+    "start:fork-profiler-0x": "0x src/server.js",
+    "start:fork-profiler-inspect": "node --inspect src/server.js",
+    "test-artillery": "artillery quick --count 50 -n 20 http://localhost:8080/info > result_fork.txt",
+    "test-autocannon":"node src/benchmark/benchmark.js"
+    
   },
   "author": "",
   "license": "ISC",
@@ -39,6 +44,9 @@
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
+    "0x": "^4.11.0",
+    "artillery": "^1.7.7",
+    "autocannon": "^7.5.0",
     "nodemon": "^2.0.12"
   }
 }

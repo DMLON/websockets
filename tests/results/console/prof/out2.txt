@@ -1,0 +1,445 @@
+Statistical profiling result from isolate-00000286439A61B0-14956-v8.log, (3972 ticks, 7 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   2394   60.3%          C:\Windows\SYSTEM32\ntdll.dll
+   1295   32.6%          C:\Program Files\nodejs\node.exe
+      1    0.0%          C:\Windows\System32\KERNELBASE.dll
+      1    0.0%          C:\Windows\System32\KERNEL32.DLL
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+     23    0.6%    8.2%  LazyCompile: *recurse F:\backup\Coderhouse\Backend\websockets\node_modules\babel-walk\lib\index.js:73:26
+     12    0.3%    4.3%  LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+     11    0.3%    3.9%  LazyCompile: *getTokenFromCode F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:2158:19
+      9    0.2%    3.2%  LazyCompile: *readString F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:2620:13
+      7    0.2%    2.5%  LazyCompile: *parseMaybeUnary F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:10995:18
+      6    0.2%    2.1%  LazyCompile: *recurse F:\backup\Coderhouse\Backend\websockets\node_modules\babel-walk\lib\index.js:110:26
+      6    0.2%    2.1%  LazyCompile: *parseChar F:\backup\Coderhouse\Backend\websockets\node_modules\character-parser\index.js:76:19
+      5    0.1%    1.8%  LazyCompile: *readWord1 F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:2830:12
+      5    0.1%    1.8%  LazyCompile: *callLexerFunction F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1635:30
+      4    0.1%    1.4%  LazyCompile: *readInt F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:2409:10
+      4    0.1%    1.4%  LazyCompile: *parseSubscripts F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:11090:18
+      4    0.1%    1.4%  LazyCompile: *parseExprAtom F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:11313:16
+      4    0.1%    1.4%  LazyCompile: *next F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:1645:7
+      4    0.1%    1.4%  LazyCompile: *isConstant F:\backup\Coderhouse\Backend\websockets\node_modules\constantinople\lib\index.js:332:20
+      4    0.1%    1.4%  LazyCompile: *indent F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1487:19
+      3    0.1%    1.1%  RegExp: ^default\b
+      3    0.1%    1.1%  LazyCompile: *while F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1023:18
+      3    0.1%    1.1%  LazyCompile: *visitTag F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:613:21
+      3    0.1%    1.1%  LazyCompile: *skipSpace F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:1806:12
+      3    0.1%    1.1%  LazyCompile: *shallowEqual F:\backup\Coderhouse\Backend\websockets\node_modules\constantinople\lib\index.js:247:22
+      3    0.1%    1.1%  LazyCompile: *parseMaybeAssign F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:10785:19
+      3    0.1%    1.1%  LazyCompile: *next F:\backup\Coderhouse\Backend\websockets\node_modules\express\lib\router\index.js:176:16
+      3    0.1%    1.1%  LazyCompile: *block F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:763:18
+      2    0.1%    0.7%  RegExp: ^\+(\s*)(([-\w]+)|(#\{))
+      2    0.1%    0.7%  RegExp: [ \n\t]
+      2    0.1%    0.7%  LazyCompile: *resolve path.js:153:10
+      2    0.1%    0.7%  LazyCompile: *resOnFinish _http_server.js:761:21
+      2    0.1%    0.7%  LazyCompile: *readSync fs.js:577:18
+      2    0.1%    0.7%  LazyCompile: *readEscapedChar F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:2728:18
+      2    0.1%    0.7%  LazyCompile: *pp$9.nextToken F:\backup\Coderhouse\Backend\websockets\node_modules\acorn\dist\acorn.js:4391:28
+      2    0.1%    0.7%  LazyCompile: *parseUntil F:\backup\Coderhouse\Backend\websockets\node_modules\character-parser\index.js:47:20
+      2    0.1%    0.7%  LazyCompile: *parseLiteralAtNode F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:11692:21
+      2    0.1%    0.7%  LazyCompile: *parseCoverCallAndAsyncArrowHead F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:11172:34
+      2    0.1%    0.7%  LazyCompile: *parseBlockOrModuleBlockBody F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:13379:30
+      2    0.1%    0.7%  LazyCompile: *onResponseHeaders F:\backup\Coderhouse\Backend\websockets\node_modules\compression\index.js:140:47
+      2    0.1%    0.7%  LazyCompile: *initializeScopes F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:3390:19
+      2    0.1%    0.7%  LazyCompile: *hidden internal/errors.js:306:25
+      2    0.1%    0.7%  LazyCompile: *formatPrimitive internal/util/inspect.js:1354:25
+      2    0.1%    0.7%  LazyCompile: *finishOp F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:2341:11
+      2    0.1%    0.7%  LazyCompile: *finishNode F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:3534:13
+      2    0.1%    0.7%  LazyCompile: *each F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1042:17
+      2    0.1%    0.7%  LazyCompile: *case F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:855:17
+      2    0.1%    0.7%  LazyCompile: *attrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1440:18
+      2    0.1%    0.7%  LazyCompile: *Tokenizer F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:1628:14
+      2    0.1%    0.7%  LazyCompile: *Readable.read internal/streams/readable.js:371:35
+      2    0.1%    0.7%  LazyCompile: *Parser F:\backup\Coderhouse\Backend\websockets\node_modules\acorn\dist\acorn.js:470:31
+      2    0.1%    0.7%  LazyCompile: *MongoDBStore.set F:\backup\Coderhouse\Backend\websockets\node_modules\connect-mongodb-session\index.js:212:40
+      2    0.1%    0.7%  LazyCompile: *Identifier F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\globals.js:137:15
+      2    0.1%    0.7%  LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\src\routers\info.router.js:10:17
+      1    0.0%    0.4%  RegExp: ^\.[_a-z0-9\-]+
+      1    0.0%    0.4%  RegExp: ^(?:each|for) (.*?) of *([^\n]+)
+      1    0.0%    0.4%  RegExp: ^((?=.*::)(?!.*::.+::)(::)?([\dA-F]{1,4}:(:|\b)|){5}|([\dA-F]{1,4}:){6})((([\dA-F]{1,4}((?!\3)::|:\b|$))|(?!\2\3)){2}|(((2[0-4]|1\d|[1-9])?\d|25[0-5])\.?\b){4})$
+      1    0.0%    0.4%  RegExp: ^#
+      1    0.0%    0.4%  RegExp: [_mn]
+      1    0.0%    0.4%  RegExp: [^\t\x20-\x7e\x80-\xff]
+      1    0.0%    0.4%  RegExp: ["&<>]
+      1    0.0%    0.4%  LazyCompile: *writeU_Int32LE internal/buffer.js:687:24
+      1    0.0%    0.4%  LazyCompile: *writeHead _http_server.js:254:19
+      1    0.0%    0.4%  LazyCompile: *when F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:873:17
+      1    0.0%    0.4%  LazyCompile: *visitText F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:716:22
+      1    0.0%    0.4%  LazyCompile: *visitEach F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:838:22
+      1    0.0%    0.4%  LazyCompile: *visitDoctype F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:477:25
+      1    0.0%    0.4%  LazyCompile: *visitBlock F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:420:23
+      1    0.0%    0.4%  LazyCompile: *visitAttributes F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:935:28
+      1    0.0%    0.4%  LazyCompile: *visit F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:292:18
+      1    0.0%    0.4%  LazyCompile: *value internal/console/constructor.js:300:20
+      1    0.0%    0.4%  LazyCompile: *tokEnd F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:146:19
+      1    0.0%    0.4%  LazyCompile: *tok F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:121:16
+      1    0.0%    0.4%  LazyCompile: *toString buffer.js:775:46
+      1    0.0%    0.4%  LazyCompile: *toReferencedListDeep F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:10482:23
+      1    0.0%    0.4%  LazyCompile: *toConstant F:\backup\Coderhouse\Backend\websockets\node_modules\constantinople\lib\index.js:9:24
+      1    0.0%    0.4%  LazyCompile: *stringify F:\backup\Coderhouse\Backend\websockets\node_modules\js-stringify\index.js:4:19
+      1    0.0%    0.4%  LazyCompile: *startNodeAt F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:3526:14
+      1    0.0%    0.4%  LazyCompile: *set F:\backup\Coderhouse\Backend\websockets\node_modules\express\lib\application.js:352:23
+      1    0.0%    0.4%  LazyCompile: *session F:\backup\Coderhouse\Backend\websockets\node_modules\express-session\index.js:179:26
+      1    0.0%    0.4%  LazyCompile: *serializeInto F:\backup\Coderhouse\Backend\websockets\node_modules\connect-mongodb-session\node_modules\bson\lib\parser\serializer.js:550:23
+      1    0.0%    0.4%  LazyCompile: *reduceToSingleString internal/util/inspect.js:1728:30
+      1    0.0%    0.4%  LazyCompile: *readNumber F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:2503:13
+      1    0.0%    0.4%  LazyCompile: *readDoubleForwards internal/buffer.js:556:28
+      1    0.0%    0.4%  LazyCompile: *pp$3.parseMaybeAssign F:\backup\Coderhouse\Backend\websockets\node_modules\acorn\dist\acorn.js:1976:35
+      1    0.0%    0.4%  LazyCompile: *parseVar F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:13456:11
+      1    0.0%    0.4%  LazyCompile: *parseProgram F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:12715:15
+      1    0.0%    0.4%  LazyCompile: *parseParenAndDistinguishExpression F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:11741:37
+      1    0.0%    0.4%  LazyCompile: *parseFunctionBody F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:12233:20
+      1    0.0%    0.4%  LazyCompile: *parseExpression F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:10743:18
+      1    0.0%    0.4%  LazyCompile: *parseExprOpRightExpr F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:10941:23
+      1    0.0%    0.4%  LazyCompile: *parseExprOp F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:10891:14
+      1    0.0%    0.4%  LazyCompile: *parseExpr F:\backup\Coderhouse\Backend\websockets\node_modules\pug-parser\index.js:219:22
+      1    0.0%    0.4%  LazyCompile: *parseBlock F:\backup\Coderhouse\Backend\websockets\node_modules\pug-parser\index.js:838:23
+      1    0.0%    0.4%  LazyCompile: *parse F:\backup\Coderhouse\Backend\websockets\node_modules\character-parser\index.js:28:15
+      1    0.0%    0.4%  LazyCompile: *parse F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:14443:8
+      1    0.0%    0.4%  LazyCompile: *onwrite internal/streams/writable.js:394:17
+      1    0.0%    0.4%  LazyCompile: *normalize path.js:299:12
+      1    0.0%    0.4%  LazyCompile: *mixinBlock F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:794:23
+      1    0.0%    0.4%  LazyCompile: *lookup F:\backup\Coderhouse\Backend\websockets\node_modules\express\lib\view.js:104:40
+      1    0.0%    0.4%  LazyCompile: *link F:\backup\Coderhouse\Backend\websockets\node_modules\pug-linker\index.js:11:14
+      1    0.0%    0.4%  LazyCompile: *lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:85:18
+      1    0.0%    0.4%  LazyCompile: *join path.js:416:7
+      1    0.0%    0.4%  LazyCompile: *inspect internal/util/inspect.js:257:17
+      1    0.0%    0.4%  LazyCompile: *initBlock F:\backup\Coderhouse\Backend\websockets\node_modules\pug-parser\index.js:161:22
+      1    0.0%    0.4%  LazyCompile: *header F:\backup\Coderhouse\Backend\websockets\node_modules\express\lib\response.js:754:29
+      1    0.0%    0.4%  LazyCompile: *handle F:\backup\Coderhouse\Backend\websockets\node_modules\express\lib\router\index.js:136:31
+      1    0.0%    0.4%  LazyCompile: *getTokens F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1704:22
+      1    0.0%    0.4%  LazyCompile: *getOptions F:\backup\Coderhouse\Backend\websockets\node_modules\acorn\dist\acorn.js:407:22
+      1    0.0%    0.4%  LazyCompile: *get serverSession F:\backup\Coderhouse\Backend\websockets\node_modules\connect-mongodb-session\node_modules\mongodb\lib\sessions.js:93:22
+      1    0.0%    0.4%  LazyCompile: *get internal/streams/duplex.js:94:8
+      1    0.0%    0.4%  LazyCompile: *finishToken F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:1915:14
+      1    0.0%    0.4%  LazyCompile: *extname path.js:827:10
+      1    0.0%    0.4%  LazyCompile: *execute F:\backup\Coderhouse\Backend\websockets\node_modules\connect-mongodb-session\node_modules\mongodb\lib\operations\update.js:22:12
+      1    0.0%    0.4%  LazyCompile: *endInterpolation F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:492:29
+      1    0.0%    0.4%  LazyCompile: *emit events.js:324:44
+      1    0.0%    0.4%  LazyCompile: *eat F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:1659:6
+      1    0.0%    0.4%  LazyCompile: *eachOf F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1088:19
+      1    0.0%    0.4%  LazyCompile: *dot F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:670:16
+      1    0.0%    0.4%  LazyCompile: *doctype F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:431:20
+      1    0.0%    0.4%  LazyCompile: *dirname path.js:644:10
+      1    0.0%    0.4%  LazyCompile: *default F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:902:20
+      1    0.0%    0.4%  LazyCompile: *compileAttrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-attrs\index.js:22:22
+      1    0.0%    0.4%  LazyCompile: *compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:109:20
+      1    0.0%    0.4%  LazyCompile: *command F:\backup\Coderhouse\Backend\websockets\node_modules\connect-mongodb-session\node_modules\mongodb\lib\sdam\server.js:133:12
+      1    0.0%    0.4%  LazyCompile: *command F:\backup\Coderhouse\Backend\websockets\node_modules\connect-mongodb-session\node_modules\mongodb\lib\cmap\connection.js:161:12
+      1    0.0%    0.4%  LazyCompile: *code F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1132:17
+      1    0.0%    0.4%  LazyCompile: *className F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:465:22
+      1    0.0%    0.4%  LazyCompile: *bufferExpression F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:241:29
+      1    0.0%    0.4%  LazyCompile: *attrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-parser\index.js:1270:18
+      1    0.0%    0.4%  LazyCompile: *attributeValue F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1312:27
+      1    0.0%    0.4%  LazyCompile: *attribute F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1216:22
+      1    0.0%    0.4%  LazyCompile: *allocate buffer.js:407:18
+      1    0.0%    0.4%  LazyCompile: *addWith F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\index.js:40:17
+      1    0.0%    0.4%  LazyCompile: *addText F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:499:20
+      1    0.0%    0.4%  LazyCompile: *addAttribute F:\backup\Coderhouse\Backend\websockets\node_modules\pug-attrs\index.js:54:24
+      1    0.0%    0.4%  LazyCompile: *_onceWrap events.js:486:19
+      1    0.0%    0.4%  LazyCompile: *VariableDeclaration F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\globals.js:93:24
+      1    0.0%    0.4%  LazyCompile: *Readable.removeListener internal/streams/readable.js:877:45
+      1    0.0%    0.4%  LazyCompile: *Module._findPath internal/modules/cjs/loader.js:462:28
+      1    0.0%    0.4%  LazyCompile: *Hmac internal/crypto/hash.js:107:14
+      1    0.0%    0.4%  LazyCompile: *<anonymous> internal/fs/utils.js:644:42
+      1    0.0%    0.4%  LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      1    0.0%    0.4%  LazyCompile: *<anonymous> :6:15
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+    274    6.9%   97.5%  JavaScript
+      0    0.0%    0.0%  C++
+     32    0.8%   11.4%  GC
+   3691   92.9%          Shared libraries
+      7    0.2%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   2394   60.3%  C:\Windows\SYSTEM32\ntdll.dll
+     94    3.9%    LazyCompile: *writeGeneric internal/stream_base_commons.js:143:22
+     94  100.0%      LazyCompile: *value internal/console/constructor.js:258:20
+     94  100.0%        LazyCompile: ~log internal/console/constructor.js:357:6
+     94  100.0%          C:\Program Files\nodejs\node.exe
+     75   79.8%            LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\src\routers\info.router.js:10:17
+     15   16.0%            LazyCompile: ~<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\log4js\lib\appenders\console.js:5:10
+      4    4.3%            LazyCompile: *_log F:\backup\Coderhouse\Backend\websockets\node_modules\log4js\lib\logger.js:81:7
+     26    1.1%    LazyCompile: *writevGeneric internal/stream_base_commons.js:118:23
+     26  100.0%      LazyCompile: *clearBuffer internal/streams/writable.js:493:21
+     17   65.4%        LazyCompile: ~Writable.uncork internal/streams/writable.js:310:37
+     17  100.0%          LazyCompile: ~connectionCorkNT _http_outgoing.js:758:26
+     17  100.0%            LazyCompile: *processTicksAndRejections internal/process/task_queues.js:67:35
+      6   23.1%        LazyCompile: *end _http_outgoing.js:795:45
+      6  100.0%          LazyCompile: ~end F:\backup\Coderhouse\Backend\websockets\node_modules\compression\index.js:92:28
+      4   66.7%            LazyCompile: ~writeend F:\backup\Coderhouse\Backend\websockets\node_modules\express-session\index.js:260:24
+      2   33.3%            LazyCompile: *writeend F:\backup\Coderhouse\Backend\websockets\node_modules\express-session\index.js:260:24
+      3   11.5%        LazyCompile: *Writable.uncork internal/streams/writable.js:310:37
+      3  100.0%          LazyCompile: ~connectionCorkNT _http_outgoing.js:758:26
+      3  100.0%            LazyCompile: *processTicksAndRejections internal/process/task_queues.js:67:35
+     25    1.0%    LazyCompile: *readFileSync fs.js:391:22
+     14   56.0%      LazyCompile: ~read F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:84:26
+     14  100.0%        LazyCompile: ~read F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:155:19
+     14  100.0%          LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+     14  100.0%            LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+      8   32.0%      LazyCompile: ~handleTemplateCache F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:236:29
+      8  100.0%        LazyCompile: ~exports.renderFile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:436:30
+      8  100.0%          LazyCompile: ~exports.renderFile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:436:30
+      8  100.0%            LazyCompile: ~exports.__express F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:486:29
+      3   12.0%      LazyCompile: *read F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:155:19
+      3  100.0%        LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      3  100.0%          LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+      3  100.0%            LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+
+   1295   32.6%  C:\Program Files\nodejs\node.exe
+    819   63.2%    C:\Program Files\nodejs\node.exe
+    242   29.5%      LazyCompile: ~handleWriteReq internal/stream_base_commons.js:47:24
+    194   80.2%        LazyCompile: ~writeGeneric internal/stream_base_commons.js:143:22
+    134   69.1%          LazyCompile: *value internal/console/constructor.js:258:20
+    134  100.0%            LazyCompile: ~log internal/console/constructor.js:357:6
+     60   30.9%          LazyCompile: ~Socket._writeGeneric net.js:761:42
+     60  100.0%            LazyCompile: ~Socket._write net.js:798:35
+     48   19.8%        LazyCompile: *Writable.write internal/streams/writable.js:258:36
+     44   91.7%          LazyCompile: ~value internal/console/constructor.js:258:20
+     44  100.0%            LazyCompile: ~log internal/console/constructor.js:357:6
+      3    6.3%          LazyCompile: *ondata internal/streams/readable.js:724:18
+      3  100.0%            LazyCompile: *readableAddChunk internal/streams/readable.js:212:26
+      1    2.1%          LazyCompile: ~ondata internal/streams/readable.js:724:18
+      1  100.0%            LazyCompile: *emit events.js:324:44
+     49    6.0%      LazyCompile: ~lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:10:13
+     49  100.0%        LazyCompile: ~lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:85:18
+     26   53.1%          LazyCompile: ~loadString F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:49:34
+     21   80.8%            LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      3   11.5%            LazyCompile: ~<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      2    7.7%            LazyCompile: ~compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+     23   46.9%          LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+     23  100.0%            LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+     42    5.1%      LazyCompile: *callLexerFunction F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1635:30
+     41   97.6%        LazyCompile: *advance F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1656:20
+     28   68.3%          LazyCompile: *getTokens F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1704:22
+     28  100.0%            LazyCompile: ~lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:10:13
+      9   22.0%          LazyCompile: *lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:85:18
+      5   55.6%            LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      4   44.4%            LazyCompile: ~loadString F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:49:34
+      4    9.8%          LazyCompile: *callLexerFunction F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1635:30
+      4  100.0%            LazyCompile: ~getTokens F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1704:22
+      1    2.4%        LazyCompile: ~assertExpression F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:81:29
+      1  100.0%          LazyCompile: *attributeValue F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1312:27
+      1  100.0%            LazyCompile: *attribute F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1216:22
+     32    3.9%      LazyCompile: *parse F:\backup\Coderhouse\Backend\websockets\node_modules\pug-parser\index.js:10:15
+     26   81.3%        LazyCompile: ~parse F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:110:20
+     18   69.2%          LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+     18  100.0%            LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+      8   30.8%          LazyCompile: ~loadString F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:49:34
+      7   87.5%            LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      1   12.5%            LazyCompile: ~<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      6   18.8%        LazyCompile: *parse F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:110:20
+      3   50.0%          LazyCompile: ~loadString F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:49:34
+      3  100.0%            LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      3   50.0%          LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      3  100.0%            LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+     28    3.4%      LazyCompile: *parseChar F:\backup\Coderhouse\Backend\websockets\node_modules\character-parser\index.js:76:19
+     18   64.3%        LazyCompile: *parse F:\backup\Coderhouse\Backend\websockets\node_modules\character-parser\index.js:28:15
+     17   94.4%          LazyCompile: *attrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1440:18
+     17  100.0%            LazyCompile: *callLexerFunction F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1635:30
+      1    5.6%          LazyCompile: ~assertNestingCorrect F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:100:33
+      1  100.0%            LazyCompile: ~attrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1440:18
+      9   32.1%        LazyCompile: *parseUntil F:\backup\Coderhouse\Backend\websockets\node_modules\character-parser\index.js:47:20
+      8   88.9%          LazyCompile: *attrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1440:18
+      8  100.0%            LazyCompile: *callLexerFunction F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1635:30
+      1   11.1%          LazyCompile: ~bracketExpression F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:245:30
+      1  100.0%            LazyCompile: ~attrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1440:18
+      1    3.6%        LazyCompile: *attributeValue F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1312:27
+      1  100.0%          LazyCompile: *attribute F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1216:22
+      1  100.0%            LazyCompile: *attrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1440:18
+     28    3.4%      C:\Program Files\nodejs\node.exe
+     15   53.6%        LazyCompile: *Parser F:\backup\Coderhouse\Backend\websockets\node_modules\acorn\dist\acorn.js:470:31
+     14   93.3%          LazyCompile: *isExpression F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:75:25
+     11   78.6%            LazyCompile: *attributeValue F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1312:27
+      3   21.4%            LazyCompile: *callLexerFunction F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1635:30
+      1    6.7%          LazyCompile: *isExpression F:\backup\Coderhouse\Backend\websockets\node_modules\is-expression\index.js:14:22
+      1  100.0%            LazyCompile: ~isExpression F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:75:25
+      2    7.1%        LazyCompile: ~addWith F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\index.js:40:17
+      2  100.0%          LazyCompile: ~compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:109:20
+      2  100.0%            LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      2    7.1%        LazyCompile: *buffer F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:203:19
+      2  100.0%          LazyCompile: *visitTag F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:613:21
+      2  100.0%            LazyCompile: *visitBlock F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:420:23
+      1    3.6%        LazyCompile: ~removeColors internal/util.js:54:22
+      1  100.0%          LazyCompile: ~isBelowBreakLength internal/util/inspect.js:1704:28
+      1  100.0%            LazyCompile: ~reduceToSingleString internal/util/inspect.js:1728:30
+      1    3.6%        LazyCompile: ~format F:\backup\Coderhouse\Backend\websockets\node_modules\content-type\index.js:65:17
+      1  100.0%          LazyCompile: ~setCharset F:\backup\Coderhouse\Backend\websockets\node_modules\express\lib\utils.js:250:41
+      1  100.0%            LazyCompile: ~send F:\backup\Coderhouse\Backend\websockets\node_modules\express\lib\response.js:107:25
+      1    3.6%        LazyCompile: ~checkInvalidHeaderChar _http_common.js:230:32
+      1  100.0%          LazyCompile: ~<anonymous> _http_outgoing.js:549:45
+      1  100.0%            LazyCompile: *hidden internal/errors.js:306:25
+      1    3.6%        LazyCompile: ~asString F:\backup\Coderhouse\Backend\websockets\node_modules\date-format\lib\index.js:33:18
+      1  100.0%          LazyCompile: ~timestampLevelAndCategory F:\backup\Coderhouse\Backend\websockets\node_modules\log4js\lib\layouts.js:40:35
+      1  100.0%            LazyCompile: ~colouredLayout F:\backup\Coderhouse\Backend\websockets\node_modules\log4js\lib\layouts.js:69:24
+      1    3.6%        LazyCompile: ~<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\bcrypt\node_modules\@mapbox\node-pre-gyp\lib\util\versioning.js:23:36
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            Eval: ~<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\bcrypt\node_modules\@mapbox\node-pre-gyp\lib\util\versioning.js:1:1
+      1    3.6%        LazyCompile: *syncExports internal/bootstrap/loaders.js:261:14
+      1  100.0%          LazyCompile: ~compileForPublicLoader internal/bootstrap/loaders.js:220:25
+      1  100.0%            LazyCompile: *Module._load internal/modules/cjs/loader.js:725:24
+      1    3.6%        LazyCompile: *readNumber F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:2503:13
+      1  100.0%          LazyCompile: *getTokenFromCode F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:2158:19
+      1  100.0%            LazyCompile: *next F:\backup\Coderhouse\Backend\websockets\node_modules\@babel\parser\lib\index.js:1645:7
+      1    3.6%        LazyCompile: *bufferName F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:619:24
+      1  100.0%          LazyCompile: *visitTag F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:613:21
+      1  100.0%            LazyCompile: *visitBlock F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:420:23
+      1    3.6%        LazyCompile: *addWith F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\index.js:40:17
+      1  100.0%          LazyCompile: *compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:109:20
+      1  100.0%            LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+     21    2.6%      LazyCompile: *lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:85:18
+     14   66.7%        LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+     14  100.0%          LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+     14  100.0%            LazyCompile: ~handleTemplateCache F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:236:29
+      7   33.3%        LazyCompile: ~loadString F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:49:34
+      7  100.0%          LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      7  100.0%            LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+     20    2.4%      LazyCompile: ~statSync fs.js:1119:18
+     20  100.0%        LazyCompile: ~tryStat F:\backup\Coderhouse\Backend\websockets\node_modules\express\lib\view.js:174:17
+     20  100.0%          LazyCompile: ~resolve F:\backup\Coderhouse\Backend\websockets\node_modules\express\lib\view.js:146:42
+     20  100.0%            LazyCompile: ~lookup F:\backup\Coderhouse\Backend\websockets\node_modules\express\lib\view.js:104:40
+     17    2.1%      LazyCompile: ~load F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:9:14
+     12   70.6%        LazyCompile: ~loadString F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:49:34
+      7   58.3%          LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      7  100.0%            LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+      3   25.0%          LazyCompile: ~compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      3  100.0%            LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+      2   16.7%          LazyCompile: ~<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      2  100.0%            LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+      5   29.4%        LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      5  100.0%          LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+      5  100.0%            LazyCompile: ~handleTemplateCache F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:236:29
+     14    1.7%      LazyCompile: *Parser F:\backup\Coderhouse\Backend\websockets\node_modules\acorn\dist\acorn.js:470:31
+     12   85.7%        LazyCompile: *isExpression F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:75:25
+      9   75.0%          LazyCompile: *attributeValue F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1312:27
+      9  100.0%            LazyCompile: *attribute F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1216:22
+      2   16.7%          LazyCompile: *callLexerFunction F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1635:30
+      1   50.0%            LazyCompile: ~assertExpression F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:81:29
+      1   50.0%            LazyCompile: *addText F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:499:20
+      1    8.3%          LazyCompile: *assertExpression F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:81:29
+      1  100.0%            LazyCompile: *attributeValue F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1312:27
+      2   14.3%        LazyCompile: *isExpression F:\backup\Coderhouse\Backend\websockets\node_modules\is-expression\index.js:14:22
+      2  100.0%          LazyCompile: ~isExpression F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:75:25
+      2  100.0%            LazyCompile: *attributeValue F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1312:27
+     13    1.6%      LazyCompile: *addWith F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\index.js:40:17
+     12   92.3%        LazyCompile: *compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:109:20
+     12  100.0%          LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+     12  100.0%            LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+      1    7.7%        LazyCompile: ~compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:109:20
+      1  100.0%          LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      1  100.0%            LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+     12    1.5%      LazyCompile: *advance F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1656:20
+     10   83.3%        LazyCompile: *getTokens F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1704:22
+     10  100.0%          LazyCompile: ~lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:10:13
+     10  100.0%            LazyCompile: ~lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:85:18
+      2   16.7%        LazyCompile: *lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:85:18
+      2  100.0%          LazyCompile: ~loadString F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:49:34
+      2  100.0%            LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+     10    1.2%      LazyCompile: ~writevGeneric internal/stream_base_commons.js:118:23
+     10  100.0%        LazyCompile: ~Socket._writeGeneric net.js:761:42
+     10  100.0%          LazyCompile: ~Socket._writev net.js:793:36
+     10  100.0%            LazyCompile: ~doWrite internal/streams/writable.js:367:17
+     10    1.2%      LazyCompile: ~parse F:\backup\Coderhouse\Backend\websockets\node_modules\pug-parser\index.js:10:15
+     10  100.0%        LazyCompile: ~parse F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:110:20
+      9   90.0%          LazyCompile: ~loadString F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:49:34
+      6   66.7%            LazyCompile: ~compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      2   22.2%            LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      1   11.1%            LazyCompile: ~<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      1   10.0%          LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      1  100.0%            LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+     10    1.2%      LazyCompile: *load F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:9:14
+      7   70.0%        LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      7  100.0%          LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+      7  100.0%            LazyCompile: ~handleTemplateCache F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:236:29
+      3   30.0%        LazyCompile: ~loadString F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:49:34
+      3  100.0%          LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      3  100.0%            LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+      9    1.1%      LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+      7   77.8%        LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+      7  100.0%          LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+      7  100.0%            LazyCompile: *walkAST F:\backup\Coderhouse\Backend\websockets\node_modules\pug-walk\index.js:4:17
+      1   11.1%        LazyCompile: ~handleFilters F:\backup\Coderhouse\Backend\websockets\node_modules\pug-filters\lib\handle-filters.js:10:23
+      1  100.0%          LazyCompile: ~compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      1  100.0%            LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+      1   11.1%        LazyCompile: *link F:\backup\Coderhouse\Backend\websockets\node_modules\pug-linker\index.js:11:14
+      1  100.0%          LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      1  100.0%            LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+     33    2.5%    LazyCompile: *recurse F:\backup\Coderhouse\Backend\websockets\node_modules\babel-walk\lib\index.js:73:26
+     32   97.0%      LazyCompile: *recurse F:\backup\Coderhouse\Backend\websockets\node_modules\babel-walk\lib\index.js:73:26
+     32  100.0%        LazyCompile: *recurse F:\backup\Coderhouse\Backend\websockets\node_modules\babel-walk\lib\index.js:73:26
+     25   78.1%          LazyCompile: *recurse F:\backup\Coderhouse\Backend\websockets\node_modules\babel-walk\lib\index.js:73:26
+     19   76.0%            LazyCompile: *recurse F:\backup\Coderhouse\Backend\websockets\node_modules\babel-walk\lib\index.js:73:26
+      6   24.0%            LazyCompile: *findGlobals F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\globals.js:166:21
+      7   21.9%          LazyCompile: *findGlobals F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\globals.js:166:21
+      5   71.4%            LazyCompile: *addWith F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\index.js:40:17
+      2   28.6%            LazyCompile: ~addWith F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\index.js:40:17
+      1    3.0%      LazyCompile: *findGlobals F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\globals.js:166:21
+      1  100.0%        LazyCompile: ~addWith F:\backup\Coderhouse\Backend\websockets\node_modules\with\lib\index.js:40:17
+      1  100.0%          LazyCompile: ~compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:109:20
+      1  100.0%            LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+     15    1.2%    LazyCompile: *isConstant F:\backup\Coderhouse\Backend\websockets\node_modules\constantinople\lib\index.js:332:20
+      8   53.3%      LazyCompile: *addAttribute F:\backup\Coderhouse\Backend\websockets\node_modules\pug-attrs\index.js:54:24
+      8  100.0%        LazyCompile: *compileAttrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-attrs\index.js:22:22
+      6   75.0%          LazyCompile: *visitAttributes F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:935:28
+      6  100.0%            LazyCompile: *visitTag F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:613:21
+      1   12.5%          LazyCompile: ~attrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:971:18
+      1  100.0%            LazyCompile: ~visitAttributes F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:935:28
+      1   12.5%          LazyCompile: *attrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:971:18
+      1  100.0%            LazyCompile: ~visitAttributes F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:935:28
+      3   20.0%      LazyCompile: *compileAttrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-attrs\index.js:22:22
+      2   66.7%        LazyCompile: *visitAttributes F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:935:28
+      2  100.0%          LazyCompile: *visitTag F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:613:21
+      2  100.0%            LazyCompile: *visitBlock F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:420:23
+      1   33.3%        LazyCompile: *attrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:971:18
+      1  100.0%          LazyCompile: ~visitAttributes F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:935:28
+      1  100.0%            LazyCompile: *visitTag F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:613:21
+      2   13.3%      LazyCompile: *bufferExpression F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:241:29
+      1   50.0%        LazyCompile: ~visitCode F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:769:22
+      1  100.0%          LazyCompile: *visitBlock F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:420:23
+      1  100.0%            LazyCompile: *visit F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:292:18
+      1   50.0%        LazyCompile: *visitAttributes F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:935:28
+      1  100.0%          LazyCompile: *visitTag F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:613:21
+      1  100.0%            LazyCompile: *visitBlock F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:420:23
+      1    6.7%      LazyCompile: ~isConstant F:\backup\Coderhouse\Backend\websockets\node_modules\pug-attrs\index.js:8:20
+      1  100.0%        LazyCompile: ~addAttribute F:\backup\Coderhouse\Backend\websockets\node_modules\pug-attrs\index.js:54:24
+      1  100.0%          LazyCompile: *compileAttrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-attrs\index.js:22:22
+      1  100.0%            LazyCompile: *visitAttributes F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:935:28
+      1    6.7%      LazyCompile: *toConstant F:\backup\Coderhouse\Backend\websockets\node_modules\pug-attrs\index.js:11:20
+      1  100.0%        LazyCompile: *compileAttrs F:\backup\Coderhouse\Backend\websockets\node_modules\pug-attrs\index.js:22:22
+      1  100.0%          LazyCompile: *visitAttributes F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:935:28
+      1  100.0%            LazyCompile: *visitTag F:\backup\Coderhouse\Backend\websockets\node_modules\pug-code-gen\index.js:613:21
+     15    1.2%    LazyCompile: *callLexerFunction F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1635:30
+     14   93.3%      LazyCompile: *advance F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1656:20
+      9   64.3%        LazyCompile: *getTokens F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1704:22
+      9  100.0%          LazyCompile: ~lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:10:13
+      9  100.0%            LazyCompile: ~lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:85:18
+      4   28.6%        LazyCompile: *lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:85:18
+      3   75.0%          LazyCompile: *compileBody F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:77:21
+      3  100.0%            LazyCompile: ~exports.compile F:\backup\Coderhouse\Backend\websockets\node_modules\pug\lib\index.js:264:27
+      1   25.0%          LazyCompile: ~loadString F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:49:34
+      1  100.0%            LazyCompile: *<anonymous> F:\backup\Coderhouse\Backend\websockets\node_modules\pug-load\index.js:13:28
+      1    7.1%        LazyCompile: *callLexerFunction F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1635:30
+      1  100.0%          LazyCompile: ~getTokens F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1704:22
+      1  100.0%            LazyCompile: ~lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:10:13
+      1    6.7%      LazyCompile: ~advance F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1656:20
+      1  100.0%        LazyCompile: *callLexerFunction F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1635:30
+      1  100.0%          LazyCompile: ~getTokens F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:1704:22
+      1  100.0%            LazyCompile: ~lex F:\backup\Coderhouse\Backend\websockets\node_modules\pug-lexer\index.js:10:13
+

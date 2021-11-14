@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
         "Current total Memory (MB)": Math.round(processInfo.RSSMemory/1024/1024),
         "Number of CPUs":processInfo.numCPUs
     }
+    // console.log(info);
     res.render("info.pug",{info});
 });
 
