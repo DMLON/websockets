@@ -78,7 +78,7 @@ app.get("/", (req, res) => {
 
 
 
-const PORT = argv.port || 8080;
+const PORT = process.env.PORT || argv.port || 8080;
 app.listen(PORT, (err) => {
     if (err){ loggerErrors.error(`Error creating server ${err}`); return;}
     loggerDefault.info(`Server started on ${PORT}`);
