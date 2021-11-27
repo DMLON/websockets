@@ -24,10 +24,11 @@ if (argv.mode == "CLUSTER"){
 else if (argv.mode == "FORK" || argv.mode == undefined){
     // server in fork mode
     const child_process = require("child_process");
-    const worker = child_process.fork("./src/server.js", [`--port=${argv.port || 8080}`]);
-    worker.on("exit", (code, signal) => {
-        loggerWarnings.warn(`worker ${worker.process.pid} died`);
-    });
+    // const worker = child_process.fork("./src/server.js", [`--port=${argv.port || 8080}`]);
+    // worker.on("exit", (code, signal) => {
+    //     loggerWarnings.warn(`worker ${worker.process.pid} died`);
+    // });
+    require("./server");
 }
     
 
