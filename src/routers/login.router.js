@@ -2,6 +2,7 @@ const express = require("express");
 const router_login = express.Router();
 
 let passport = require("passport");
+const { logout } = require("../controllers/login.controller");
 
 const { db_users } = require("../database/databases");
 passport = require('../utils/passport.facebook')(passport,db_users)
@@ -35,16 +36,7 @@ router_login.post('/login',passport.authenticate('local-login',{successRedirect:
 
 router_login.post('/signup',passport.authenticate('local-signup',{successRedirect:"/",failureRedirect:"/auth/failLogin",failureFlash:true}));
 
-router_login.post("/logout", (req, res) => {
-    const ip = req.clientIp;
-    loggerDefault.info(`[${ip}] - POST /auth/logout`);
-    req.session.destroy((err) => {
-        let result = null;
-        if (!err) result = { error: false, status: "ok", redirectURL: "/products" };
-        else result = { error: true, status: err };
-        res.send(result);
-    });
-});
+router_login.post("/logout", logout);
 
 router_login.get("/failLogin", (req, res) => {
     const ip = req.clientIp;
