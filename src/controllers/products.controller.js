@@ -1,5 +1,10 @@
+const {getDao} = require("../database/daos/products.dao.factory")
+const db_products = getDao();
 
+const {loggerWarnings,loggerErrors ,loggerDefault } = require('../utils/loggers');
+// const { getRandomProducts } = require("./backend/faker.products.router");
 
+// let products = getRandomProducts();
 
 const getproducts =async (req,res)=>{
     const ip = req.clientIp;
@@ -9,6 +14,13 @@ const getproducts =async (req,res)=>{
         loggerErrors.error(`[${ip}] - GET /products - User not logged in`);
         res.render("productsShow.pug", { loggedIn, products: [] });
         return;
+    }
+    let products = [];
+    try{
+        products = await db_products.getAll();
+    }
+    catch(error){
+        loggerErrors.error(`[${ip}] - GET /products - DB error`);
     }
     res.render("productsShow.pug", { loggedIn, username: user?.username, products });
 
@@ -27,8 +39,14 @@ const newProduct = async (req, res) => {
 
     // If user is logged in, get product from body and add it
     const product = req.body;
-    products.push(product);
-
+    try{
+        await db_products.save(product);
+    }
+    catch(error){
+        loggerErrors.error(`[${ip}] - POST /products - DB error`);
+        res.send({ error: true, status: "DB error" });
+        return;
+    }
     res.send({ error: false, status: "ok" });
 }
 

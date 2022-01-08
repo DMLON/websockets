@@ -1,4 +1,16 @@
+const { MessagesRepository } = require("../database/repositories/messages.repository");
 
+const {loggerWarnings,loggerErrors ,loggerDefault } = require('../utils/loggers');
+
+
+const db_messages = new MessagesRepository();
+
+function formatDate(date) {
+    date_temp = new Date(date);
+    hours = date_temp.getHours();
+    minutes = date_temp.getMinutes();
+    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+}
 
 const showChat =async (req, res) => {
     const ip = req.clientIp;
@@ -13,7 +25,15 @@ const showChat =async (req, res) => {
 
     const user = req.session.user;
     //Normalmente renderaria los primeros N mensajes y a medida que se scrolle obteneria más
-    const messages = await db_messages.getAll();
+    let messages = [];
+
+    try{
+        messages = await db_messages.getAll();
+    }
+    catch(error){
+        loggerErrors.error(`[${ip}] - GET /chat - DB error`);
+    }
+
     res.render("chat.pug", { loggedIn, user, messages, formatDate });
 }
 

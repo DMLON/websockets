@@ -3771,7 +3771,7 @@ code-creation,Eval,11,420383,0x29df6540fd6,5, F:\\backup\\Coderhouse\\Backend\\w
 code-creation,Eval,11,420396,0x29df6541146,26, F:\\backup\\Coderhouse\\Backend\\websockets\\src\\database\\options\\mariaDB.js:1:1,0x29df6540f40,~
 code-creation,Eval,11,420728,0x29df65415be,5, F:\\backup\\Coderhouse\\Backend\\websockets\\src\\database\\options\\SQLite3.js:1:1,0x29df6541458,~
 code-creation,Eval,11,420748,0x29df65416fe,26, F:\\backup\\Coderhouse\\Backend\\websockets\\src\\database\\options\\SQLite3.js:1:1,0x29df6541528,~
-code-creation,LazyCompile,11,420803,0x29df65418ae,32,DBConnector F:\\backup\\Coderhouse\\Backend\\websockets\\src\\database\\connector.js:4:16,0x8aa84374e8,~
+code-creation,LazyCompile,11,420803,0x29df65418ae,32,KnexDBConnector F:\\backup\\Coderhouse\\Backend\\websockets\\src\\database\\connector.js:4:16,0x8aa84374e8,~
 code-creation,Eval,11,421442,0x29df6542b16,5, F:\\backup\\Coderhouse\\Backend\\websockets\\node_modules\\knex\\knex.js:1:1,0x29df65429b0,~
 code-creation,Eval,11,421454,0x29df6542bbe,28, F:\\backup\\Coderhouse\\Backend\\websockets\\node_modules\\knex\\knex.js:1:1,0x29df6542a80,~
 code-creation,Eval,11,421741,0x29df65430de,5, F:\\backup\\Coderhouse\\Backend\\websockets\\node_modules\\knex\\lib\\index.js:1:1,0x29df6542f78,~

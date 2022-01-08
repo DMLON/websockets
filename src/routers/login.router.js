@@ -3,8 +3,9 @@ const router_login = express.Router();
 
 let passport = require("passport");
 const { logout } = require("../controllers/login.controller");
+const { getDao } = require("../database/daos/users.dao.factory");
 
-const { db_users } = require("../database/databases");
+const db_users = getDao()
 passport = require('../utils/passport.facebook')(passport,db_users)
 passport = require('../utils/passport.local')(passport,db_users)
 

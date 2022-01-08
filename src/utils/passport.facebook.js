@@ -1,11 +1,12 @@
+const { UserDto } = require("../database/dtos/user.dto");
+
 
 module.exports = (passport, db_users) => {
     const FacebookStrategy = require("@passport-next/passport-facebook").Strategy;
     const {loggerWarnings,loggerErrors ,loggerDefault } = require('./loggers');
-    const dotenv = require("dotenv");
-    dotenv.config();
+    const config = require("../config");
 
-    const { FACEBOOK_APP_SECRET, FACEBOOK_APP_ID } = process.env;
+    const { FACEBOOK_APP_SECRET, FACEBOOK_APP_ID } = config;
 
     passport.use(
         new FacebookStrategy(
@@ -23,8 +24,7 @@ module.exports = (passport, db_users) => {
                 let user = null;
                 const email = profile.emails[0]?.value;
                 try {
-                    user = await db_users.knex.from("users").where({ email: email });
-                    user = user[0];
+                    user = await db_users.getUserByEmail(email);
                 } catch (err) {
                     loggerErrors.error("Error in SignUp: " + err);
                     return done(err);
@@ -36,15 +36,16 @@ module.exports = (passport, db_users) => {
                     return done(null, user);
                 }
                 const splittedName = profile.displayName.split(" ");
-                const newUser = {
+
+                const newUser = new UserDto({
                     username: profile.displayName,
-                    password: "",
                     email: email,
+                    password: "",
                     profilePhoto: profile.photos[0]?.value,
+                    authMethod: "facebook",
                     firstName: splittedName[0],
                     lastName: profile.displayName.split(" ").splice(1, splittedName.length),
-                    authMethod: "facebook",
-                };
+                });
 
                 try {
                     await db_users.save(newUser);

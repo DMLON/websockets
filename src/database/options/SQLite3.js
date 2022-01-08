@@ -1,8 +1,9 @@
+const config = require('../../config');
+
+
 const options = {
     client: 'sqlite3',
-    connection: {
-        filename: "./src/database/ecommerce.sqlite"
-    },
+    connection: config.connection,
     useNullAsDefault: true
 }
 

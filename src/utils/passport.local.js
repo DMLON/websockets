@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const { UserDto } = require("../database/dtos/user.dto");
 
 module.exports = (passport, db_users) => {
     const {loggerWarnings,loggerErrors ,loggerDefault } = require('./loggers');
@@ -18,8 +19,7 @@ module.exports = (passport, db_users) => {
             let user = null;
             try {
                 // This is used to avoid users being able to login to facebook users with local
-                user = await db_users.knex.from("users").where({ username: username }).andWhere({ authMethod: "local" });
-                user = user[0];
+                user = await db_users.getUserByUsername(username,"local");
             } catch (err) {
                 loggerErrors.error("Error in login: " + err);
                 return done(err);
@@ -50,8 +50,7 @@ module.exports = (passport, db_users) => {
                 let user = null;
                 const email = req.body.email
                 try {
-                    user = await db_users.knex.from("users").where({ username: username }).orWhere({ email: email });
-                    user = user[0];
+                    user = await db_users.getUserByUsernameOrEmail(username,email);;
                 } catch (err) {
                     loggerErrors.error("Error in SignUp: " + err);
                     return done(err);
@@ -63,16 +62,16 @@ module.exports = (passport, db_users) => {
                     return done(error, false);
                 }
 
-                const newUser = {
-                    username: req.body.username,
-                    password: createHash(password),
-                    email: req.body.email,
-                    profilePhoto: req.body.profilePhoto,
-                    firstName: req.body.firstName,
-                    lastName: req.body.lastName,
-                    authMethod: "local",
-                };
-
+                const newUser = new UserDto({
+                    username:req.body.username,
+                    email:req.body.email,
+                    password:createHash(password),
+                    profilePhoto:req.body.profilePhoto,
+                    authMethod:"local",
+                    firstName:req.body.firstName,
+                    lastName:req.body.lastName
+                });
+                
                 try {
                     await db_users.save(newUser);
                 } catch (err) {

@@ -1,8 +1,4 @@
-const dotenv = require("dotenv");
-dotenv.config();
-
-const { MONGODB_URI, SECRET, NODE_ENV } = process.env;
-const argv = require('minimist')(process.argv.slice(2));
+const config = require('./config.js');
 
 const express =         require("express");
 const path =            require("path");
@@ -31,7 +27,7 @@ app.set("view engine", "pug");
 const MongoStore = MongoSession(session);
 
 const store = new MongoStore({
-    uri: MONGODB_URI,
+    uri: config.MONGODB_URI,
     collection: "sessions",
 });
 
@@ -39,10 +35,10 @@ const sessionMiddleware = session({
     store,
     resave: true,
     saveUninitialized: true,
-    secret: SECRET,
+    secret: config.SECRET,
     cookie: {
         maxAge: 15 * 1000, // 5 seg
-        sameSite: NODE_ENV == 'development' ? 'lax' : 'strict', 
+        sameSite: config.NODE_ENV == 'development' ? 'lax' : 'strict', 
     },
     rolling: true,
 });
@@ -78,7 +74,7 @@ app.get("/", (req, res) => {
 
 
 
-const PORT = process.env.PORT || argv.port || 8080;
+const PORT = config.PORT;
 app.listen(PORT, (err) => {
     if (err){ loggerErrors.error(`Error creating server ${err}`); return;}
     loggerDefault.info(`Server started on ${PORT}`);
