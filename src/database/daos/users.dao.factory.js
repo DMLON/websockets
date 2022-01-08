@@ -4,7 +4,7 @@
 // ------------- DB Config -------------
 const { KnexDBConnector } = require("../connectors/knex/knex.connector");
 const config = require('../../config');
-const UsersDaoDb = require("./users.dao.db");
+const UsersDaoDb = require("./users.dao.sqldb");
 
 let dao;
 

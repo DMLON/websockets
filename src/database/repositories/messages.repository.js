@@ -36,10 +36,10 @@ class MessagesRepository {
         
     }
 
-    save(prod) {
+    async save(prod) {
         const dto = new MessageDto(prod)
         try{
-            return this.dao.save(dto)
+            return await this.dao.save(dto)
         }
         catch(err){
             loggerErrors.error(err);

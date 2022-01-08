@@ -2,7 +2,8 @@ const {MessagesDao} = require('./messages.dao.js');
 
 let instance = null;
 
-class MessagesDaoDb extends MessagesDao {
+// No instancia DTO ni Model ya que se encarga el repository
+class MessagesDaoMysqlDb extends MessagesDao {
 
     constructor(database) {
         super();
@@ -86,11 +87,11 @@ class MessagesDaoDb extends MessagesDao {
         if(!instance){
             if(!database)
                 throw new Error('Database is required');
-            instance = new MessagesDaoDb(database);
+            instance = new MessagesDaoMysqlDb(database);
         }
         return instance;
     }
 }
 
 
-module.exports = MessagesDaoDb;
+module.exports = MessagesDaoMysqlDb;

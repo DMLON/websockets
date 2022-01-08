@@ -5,7 +5,12 @@ function setup(){
 
     const argv = require('minimist')(process.argv.slice(2));
 
-    const { MONGODB_URI, SECRET, MYSQL_HOST, MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE, PERSISTENCE, SQLITE_FILEPATH ,FACEBOOK_APP_SECRET, FACEBOOK_APP_ID} = process.env;
+    const { MONGODB_URI, SECRET, 
+        MYSQL_HOST, MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE, 
+        PERSISTENCE, 
+        SQLITE_FILEPATH ,
+        FACEBOOK_APP_SECRET, FACEBOOK_APP_ID,
+        DB_NAME,DB_CNXSTR,AUTHSOURCE} = process.env;
 
     const NODE_ENV = argv.env || process.env.NODE_ENV || 'development';
     const PORT = process.env.PORT || argv.port || 8080;
@@ -28,10 +33,10 @@ function setup(){
         }
     
     
-    return { MONGODB_URI, SECRET, NODE_ENV, PORT, connection ,FACEBOOK_APP_SECRET, FACEBOOK_APP_ID};
+    return { MONGODB_URI, SECRET, NODE_ENV, PORT, connection ,FACEBOOK_APP_SECRET, FACEBOOK_APP_ID,DB_NAME,DB_CNXSTR,AUTHSOURCE};
 }
 
-const { MONGODB_URI, SECRET, NODE_ENV, PORT, connection ,FACEBOOK_APP_SECRET, FACEBOOK_APP_ID} = setup();
+const { MONGODB_URI, SECRET, NODE_ENV, PORT, connection ,FACEBOOK_APP_SECRET, FACEBOOK_APP_ID,DB_NAME,DB_CNXSTR,AUTHSOURCE} = setup();
 
 module.exports={
     MONGODB_URI,
@@ -39,5 +44,6 @@ module.exports={
     NODE_ENV,
     PORT,
     connection,
-    FACEBOOK_APP_SECRET, FACEBOOK_APP_ID
+    FACEBOOK_APP_SECRET, FACEBOOK_APP_ID,
+    DB_NAME,DB_CNXSTR,AUTHSOURCE
 }
