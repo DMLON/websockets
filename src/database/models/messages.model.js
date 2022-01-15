@@ -32,8 +32,6 @@ class MessageModel {
 
     // Setters -----------
     set _id(value) {
-        if(!value)
-            throw new Error("Id cannot be null");
         this.id = value;
     }
 

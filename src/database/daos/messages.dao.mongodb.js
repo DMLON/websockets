@@ -3,10 +3,11 @@ const {MessagesDao} = require('./messages.dao.js');
 
 let instance = null;
 class MessagesDAOMongoDB extends MessagesDao {
-  constructor(db) {
-    super();
-    this.model = db.model('messages');
-  }
+    constructor(db,model) {
+        super();
+        this.db = db;
+        this.model = model;
+    }
 
     async getAll() {
         try {
@@ -38,9 +39,9 @@ class MessagesDAOMongoDB extends MessagesDao {
         return buscado
     }
 
-    async save(prodNuevo) {
+    async save(message) {
         try {
-            return await productos.create(prodNuevo)
+            return await this.model.create(message)
         } catch (error) {
             throw new Error({status:500, message:'error al crear un nuevo producto' + error})
         }
@@ -59,11 +60,11 @@ class MessagesDAOMongoDB extends MessagesDao {
         }
     }
 
-    static getInstance(database){
+    static getInstance(database,model){
         if(!instance){
             if(!database)
-                throw new Error('Database is required');
-            instance = new MessagesDAOMongoDB(database);
+                throw new Error('Database and model is required');
+            instance = new MessagesDAOMongoDB(database,model);
         }
         return instance;
     }

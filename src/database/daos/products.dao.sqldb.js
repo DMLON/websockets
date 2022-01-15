@@ -9,16 +9,15 @@ class ProductsDaoDb extends ProductsDao {
 
     constructor(database) {
         super()
-        this.products = database.knex();
+        this.products = database.knex;
         this.table = 'products';
     }
 
     async save(object){
         try{
             const product = new ProductModel(object);
-            const id = await this.products
-                .from(this.table)
-                .insert(product)
+            const id = await this.products(this.table)
+                .insert(object)
             return id[0];
         }
         catch(err){
@@ -29,8 +28,7 @@ class ProductsDaoDb extends ProductsDao {
 
     async getById(id){
         try{
-            const obj = await this.products
-                .from(this.table)
+            const obj = await this.products(this.table)
                 .select('*')
                 .where({id:id})
             if(obj.length == 0)
@@ -46,8 +44,7 @@ class ProductsDaoDb extends ProductsDao {
 
     async getAll(){
         try{
-            const objs = await this.products
-                .from(this.table)
+            const objs = await this.products(this.table)
                 .select('*');
             if(objs.length == 0)
                 return [];
@@ -62,8 +59,7 @@ class ProductsDaoDb extends ProductsDao {
 
     async deleteById(id){
         try{
-            const objs = await this.products
-                .from(this.table)
+            const objs = await this.products(this.table)
                 .where({ id: id })
                 .del()
             return objs;
@@ -76,8 +72,7 @@ class ProductsDaoDb extends ProductsDao {
 
     async deleteAll(){
         try{
-            const objs = await this.products
-                .from(this.table)
+            const objs = await this.products(this.table)
                 .del()
             return objs;
         }

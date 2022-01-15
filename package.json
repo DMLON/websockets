@@ -12,8 +12,7 @@
     "start:fork-profiler-0x": "0x src/server.js",
     "start:fork-profiler-inspect": "node --inspect src/server.js",
     "test-artillery": "artillery quick --count 50 -n 20 http://localhost:8080/info > result_fork.txt",
-    "test-autocannon":"node src/benchmark/benchmark.js"
-    
+    "test-autocannon": "node src/benchmark/benchmark.js"
   },
   "author": "",
   "license": "ISC",
@@ -34,7 +33,7 @@
     "knex": "^0.95.11",
     "log4js": "^6.3.0",
     "minimist": "^1.2.5",
-    "moongoose": "0.0.5",
+    "mongoose": "^6.1.6",
     "mysql": "^2.18.1",
     "passport": "^0.5.0",
     "passport-local": "^1.0.0",

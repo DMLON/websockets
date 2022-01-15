@@ -1,8 +1,6 @@
 const {loggerWarnings,loggerErrors ,loggerDefault } = require('../../../utils/loggers');
 const {DbClient} = require('../base/DbClient');
-
-const mongoose= require('mongoose');
-const DbClient = require( '../base/DbClient.js');
+const mongoose = require('mongoose');
 
 class MongoClient extends DbClient {
     constructor(db_name,db_cnxStr,db_authSource) {
@@ -16,12 +14,7 @@ class MongoClient extends DbClient {
 
     async connect() {
         try {
-            await this.client.connect(this.db_cnxStr + db_name+"?"+this.db_authSource, {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-                useFindAndModify: false,
-                useCreateIndex: true
-            })
+            await this.client.connect(this.db_cnxStr + this.db_name+"?"+this.db_authSource)
             loggerDefault.info('base de datos conectada')
             this.connected = true
         } catch (error) {

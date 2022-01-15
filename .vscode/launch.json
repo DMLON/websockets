@@ -20,6 +20,15 @@
             "processId": "${command:PickProcess}",
             "restart": true,
             "protocol": "inspector"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch init.js",
+            "program": "src/init.js",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }

@@ -7,14 +7,13 @@ class MessagesDaoMysqlDb extends MessagesDao {
 
     constructor(database) {
         super();
-        this.messages = database.knex();
+        this.messages = database.knex;
         this.table = 'messages';
     }
 
     async save(object){
         try{
-            const id = await this.messages
-                .from(this.table)
+            const id = await this.messages(this.table)
                 .insert(object)
             return id[0];
         }
@@ -26,8 +25,7 @@ class MessagesDaoMysqlDb extends MessagesDao {
 
     async getById(id){
         try{
-            const obj = await this.messages
-                .from(this.table)
+            const obj = await this.messages(this.table)
                 .select('*')
                 .where({id:id})
             if(obj.length == 0)
@@ -42,8 +40,7 @@ class MessagesDaoMysqlDb extends MessagesDao {
 
     async getAll(){
         try{
-            const objs = await this.messages
-                .from(this.table)
+            const objs = await this.messages(this.table)
                 .select('*');
             if(objs.length == 0)
                 return [];
@@ -58,8 +55,7 @@ class MessagesDaoMysqlDb extends MessagesDao {
 
     async deleteById(id){
         try{
-            const objs = await this.messages
-                .from(this.table)
+            const objs = await this.messages(this.table)
                 .where({ id: id })
                 .del()
             return objs;
@@ -72,8 +68,7 @@ class MessagesDaoMysqlDb extends MessagesDao {
 
     async deleteAll(){
         try{
-            const objs = await this.messages
-                .from(this.table)
+            const objs = await this.messages(this.table)
                 .del()
             return objs;
         }

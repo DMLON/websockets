@@ -20,7 +20,8 @@ function setup(){
     }
     let connection = null;
 
-    if(PERSISTENCE == "SQLITE")
+    // Mongo db is asked here because is not implemented in the rest
+    if(PERSISTENCE == "SQLITE" || PERSISTENCE == "MONGODB")
         connection =  {
             filename: SQLITE_FILEPATH || "./src/database/ecommerce.sqlite"
         }
@@ -33,10 +34,10 @@ function setup(){
         }
     
     
-    return { MONGODB_URI, SECRET, NODE_ENV, PORT, connection ,FACEBOOK_APP_SECRET, FACEBOOK_APP_ID,DB_NAME,DB_CNXSTR,AUTHSOURCE};
+    return { MONGODB_URI, SECRET, NODE_ENV, PORT, connection ,FACEBOOK_APP_SECRET, FACEBOOK_APP_ID,DB_NAME,DB_CNXSTR,AUTHSOURCE,PERSISTENCE};
 }
 
-const { MONGODB_URI, SECRET, NODE_ENV, PORT, connection ,FACEBOOK_APP_SECRET, FACEBOOK_APP_ID,DB_NAME,DB_CNXSTR,AUTHSOURCE} = setup();
+const { MONGODB_URI, SECRET, NODE_ENV, PORT, connection ,FACEBOOK_APP_SECRET, FACEBOOK_APP_ID,DB_NAME,DB_CNXSTR,AUTHSOURCE,PERSISTENCE} = setup();
 
 module.exports={
     MONGODB_URI,
@@ -45,5 +46,6 @@ module.exports={
     PORT,
     connection,
     FACEBOOK_APP_SECRET, FACEBOOK_APP_ID,
-    DB_NAME,DB_CNXSTR,AUTHSOURCE
+    DB_NAME,DB_CNXSTR,AUTHSOURCE,
+    PERSISTENCE
 }

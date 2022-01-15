@@ -9,7 +9,8 @@ const MessagesDaoMysqlDb = require("./messages.dao.sqldb");
 const { MessagesDAOMongoDB } = require("./messages.dao.mongodb");
 const { MongoClient } = require("../connectors/knex/mongodb.connector");
 const {MessagesDaoFilesystem} = require('./messages.dao.filesystem');
-
+const {MessagesModel} = require('../models/messages.model.mongodb');
+const { loggerErrors } = require("../../utils/loggers");
 let dao;
 
 switch (config.PERSISTENCE) {
@@ -46,8 +47,13 @@ switch (config.PERSISTENCE) {
             const {DB_NAME,DB_CNXSTR,AUTHSOURCE} = config;
             
             const database = new MongoClient(DB_NAME, DB_CNXSTR, AUTHSOURCE);
-            database.connect();
-            dao = MessagesDAOMongoDB.getInstance(database);
+            try{
+                database.connect();
+
+                dao = MessagesDAOMongoDB.getInstance(database,MessagesModel);
+            }catch(err){
+                loggerErrors.error(err);
+            }
         }       
         break
     case 'FILESYSTEM':

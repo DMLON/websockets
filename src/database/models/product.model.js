@@ -25,19 +25,17 @@ class ProductModel {
     }
 
     set _thumbnail(value) {
-        this._thumbnail = value;
+        this.thumbnail = value;
     }
 
     set _id(value) {
-        if(!value)
-            throw new Error("Id cannot be null");
-        this._id = value;
+        this.id = value;
     }
 
     set _title(value) {
         if(!value)
             throw new Error("Title cannot be null");
-        this._title = value;
+        this.title = value;
     }
 
     set _price(value) {
@@ -47,7 +45,7 @@ class ProductModel {
             throw new Error("Price must be a number");
         if(value < 0)
             throw new Error("Price cannot be negative");
-        this._title = value;
+        this.price = value;
     }
 }
 

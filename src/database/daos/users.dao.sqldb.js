@@ -10,7 +10,7 @@ class UsersDaoDb extends UsersDao {
 
     constructor(database) {
         super()
-        this.users = database.knex();
+        this.users = database.knex;
         this.table = 'users';
     }
 
@@ -18,8 +18,7 @@ class UsersDaoDb extends UsersDao {
         
         try{
             const user = new UserModel(object);
-            const id = await this.users
-                .from(this.table)
+            const id = await this.users(this.table)
                 .insert(user)
             return id[0];
         }
@@ -31,8 +30,7 @@ class UsersDaoDb extends UsersDao {
 
     async getById(id){
         try{
-            const obj = await this.users
-                .from(this.table)
+            const obj = await this.users(this.table)
                 .select('*')
                 .where({id:id})
             if(obj.length == 0)
@@ -48,8 +46,7 @@ class UsersDaoDb extends UsersDao {
 
     async getAll(){
         try{
-            const objs = await this.users
-                .from(this.table)
+            const objs = await this.users(this.table)
                 .select('*');
             //Devuelvo la info de todos SIN password
             //Ver si es conveniente
@@ -64,8 +61,7 @@ class UsersDaoDb extends UsersDao {
 
     async deleteById(id){
         try{
-            const objs = await this.users
-                .from(this.table)
+            const objs = await this.users(this.table)
                 .where({ id: id })
                 .del()
             return objs;
@@ -78,8 +74,7 @@ class UsersDaoDb extends UsersDao {
 
     async deleteAll(){
         try{
-            const objs = await this.users
-                .from(this.table)
+            const objs = await this.users(this.table)
                 .del()
             return objs;
         }
@@ -91,7 +86,7 @@ class UsersDaoDb extends UsersDao {
 
     async getUserByUsername(username,authMethod)
     {
-        const user = await this.users.from("users").where({ username: username }).andWhere({ authMethod: authMethod });
+        const user = await this.users(this.table).where({ username: username }).andWhere({ authMethod: authMethod });
         try{
             if(user.length == 0)
                 return null;
@@ -107,7 +102,7 @@ class UsersDaoDb extends UsersDao {
 
     async getUserByUsernameOrEmail(username,email)
     {
-        const user = await this.users.from("users").where({ username: username }).orWhere({ email: email });
+        const user = await this.users(this.table).where({ username: username }).orWhere({ email: email });
         try{
             if(user.length == 0)
                 return null;
@@ -121,7 +116,7 @@ class UsersDaoDb extends UsersDao {
     }
 
     async getUserByEmail(email){
-        const user = await this.users.from("users").where({ email: email });
+        const user = await this.users(this.table).where({ email: email });
         try{
             if(user.length == 0)
                 return null;
