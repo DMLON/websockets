@@ -77,6 +77,55 @@ const newProduct = async (req, res) => {
     res.send({ error: false, status: "ok" });
 }
 
+const deleteProduct = async (req, res) => {
+    const ip = req.clientIp;
+    loggerDefault.info(`[${ip}] - DELETE /products`);
+
+    const { loggedIn } = req.session;
+    if (!loggedIn) {
+        loggerErrors.error(`[${ip}] - DELETE /products - Not logged in`);
+        res.send({ error: true, status: "You are not logged in!" });
+        return;
+    }
+
+    // If user is logged in, get product from body and add it
+    const id = req.params.id;
+    try{
+        await db_products.deleteById(id);
+        res.send({ error: false, status: "ok" });
+    }
+    catch(error){
+        loggerErrors.error(`[${ip}] - DELETE /products - DB error`);
+        res.send({ error: true, status: "DB error" });
+        return;
+    }
+}
+
+const editProduct = async (req, res) => {
+    const ip = req.clientIp;
+    loggerDefault.info(`[${ip}] - PUT /products`);
+
+    const { loggedIn } = req.session;
+    if (!loggedIn) {
+        loggerErrors.error(`[${ip}] - PUT /products - Not logged in`);
+        res.send({ error: true, status: "You are not logged in!" });
+        return;
+    }
+
+    // If user is logged in, get product from body and add it
+    const id = req.params.id;
+    const product = req.body;
+    try{
+        const object = await db_products.update(id,product);
+        res.send({ error: false, status: "ok",object:object });
+    }
+    catch(error){
+        loggerErrors.error(`[${ip}] - PUT /products - DB error`);
+        res.send({ error: true, status: "DB error" });
+        return;
+    }
+}
+
 module.exports = {
-    getproducts,newProduct,getproductsApi
+    getproducts,newProduct,getproductsApi,deleteProduct,editProduct
 }

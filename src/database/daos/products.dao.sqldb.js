@@ -26,6 +26,21 @@ class ProductsDaoDb extends ProductsDao {
         }
     }
 
+    async update(id,object){
+        try{
+            const product = new ProductModel(object);
+            const rows = await this.products(this.table)
+                .where({id:id})
+                .update(object)
+            const prod = await this.getById(id)
+            return prod;
+        }
+        catch(err){
+            loggerErrors.error(err);
+            throw err;
+        }
+    }
+
     async getById(id){
         try{
             const obj = await this.products(this.table)
