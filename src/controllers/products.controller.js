@@ -10,6 +10,8 @@ const getproducts =async (req,res)=>{
     const ip = req.clientIp;
     loggerDefault.info(`[${ip}] - GET /products`);
     const { loggedIn, user } = req.session;
+    console.log(loggedIn)
+
     if (!loggedIn) {
         loggerErrors.error(`[${ip}] - GET /products - User not logged in`);
         res.render("productsShow.pug", { loggedIn, products: [] });
@@ -30,7 +32,9 @@ const getproducts =async (req,res)=>{
 const getproductsApi = async (req, res) => {
     const ip = req.clientIp;
     loggerDefault.info(`[${ip}] - GET /products`);
+    
     const { loggedIn, user } = req.session;
+    loggerDefault.info(user)
     if (!loggedIn) {
         loggerErrors.error(`[${ip}] - GET /api/products - User not logged in`);
         res.send({ error: true, status: "You are not logged in!" });
