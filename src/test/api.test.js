@@ -52,6 +52,7 @@ describe('GET Products', () => {
             .set('Cookie', cookie)
             .end((err,res)=>{
                 if(err) done(err)
+                console.log(res.body)
                 expect(res.body).to.be.an('array')
                 expect(res.status).to.equal(200)
                 done()
