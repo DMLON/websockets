@@ -22,9 +22,32 @@ const getproducts =async (req,res)=>{
     catch(error){
         loggerErrors.error(`[${ip}] - GET /products - DB error`);
     }
+    // products = await getproductsApi(req,res);
     res.render("productsShow.pug", { loggedIn, username: user?.username, products });
 
 }
+
+const getproductsApi = async (req, res) => {
+    const ip = req.clientIp;
+    loggerDefault.info(`[${ip}] - GET /products`);
+    const { loggedIn, user } = req.session;
+    if (!loggedIn) {
+        loggerErrors.error(`[${ip}] - GET /api/products - User not logged in`);
+        res.send({ error: true, status: "You are not logged in!" });
+        return;
+    }
+    let products = [];
+    try{
+        products = await db_products.getAll();
+        res.send({ error: false, status: "ok", products });
+    }
+    catch(error){
+        loggerErrors.error(`[${ip}] - GET /api/products - DB error`);
+        res.send({ error: true, status: "DB error" });
+    }
+    
+}
+
 
 const newProduct = async (req, res) => {
     const ip = req.clientIp;
@@ -51,5 +74,5 @@ const newProduct = async (req, res) => {
 }
 
 module.exports = {
-    getproducts,newProduct
+    getproducts,newProduct,getproductsApi
 }

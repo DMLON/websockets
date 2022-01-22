@@ -13,11 +13,14 @@ const {loggerWarnings,loggerErrors ,loggerDefault } = require('../utils/loggers'
 
 
 passport.serializeUser((user, cb) => {
-    return cb(null, user)
+    return cb(null, user.username)
 });
 
-passport.deserializeUser((id, cb) => {
-    return cb(null, id)
+passport.deserializeUser((username, cb) => {
+    db_users.getUserByUsername(username,'local').then(res=>{
+        return cb(null, username)
+    })
+    
 });
 
 router_login.get("/login", (req, res) => {
