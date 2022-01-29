@@ -15,36 +15,43 @@ const schema = buildSchema(`
     price: Float,
     thumbnail:String
   }
+
+  type Message {
+    id: ID!,
+    message: String,
+    date: String,
+    profilePhoto: String,
+    email: String,
+    name: String
+  }
+  input MessagesInput {
+    message: String,
+    profilePhoto: String,
+    email: String,
+    name: String
+  }
+
   type Query {
     getProducts: [Product],
+
+    getMessages: [Message],
   }
   type Mutation {
     createProduct(object: ProductInput): Product
     editProduct(id: ID!,object: ProductInput): Product,
     deleteProduct(id: ID!): Product,
+
+    createMessage(object: MessagesInput): Message
   }
 `);
 
-const {getDao} = require("../database/daos/products.dao.factory")
 
 
 class GraphQLController {
-    constructor() {
-        const db_products = getDao();
+    constructor(resolver) {
         return graphqlHTTP({
             schema: schema,
-            rootValue: {
-                getProducts: () => db_products.getAll(),
-                createProduct: (data)=>{
-                  return {id:db_products.save(data)}
-                },
-                editProduct: (data)=>{
-                  return db_products.update(data.id,data)
-                },
-                deleteProduct: (data)=>{
-                  return db_products.deleteById(data.id)
-                },
-            },
+            rootValue: resolver,
             graphiql: true,
         });
     }

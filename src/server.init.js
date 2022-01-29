@@ -45,8 +45,9 @@ const sessionMiddleware = session({
 
 app.use(sessionMiddleware);
 // ------------- End Express Configuration ----------------
-const GraphQLController = require('./controllers/graphQLController.js');
-app.use('/graphql', new GraphQLController());
+const GraphQLController = require('./controllers/graphql/graphQLController.js');
+const GraphQLResolvers = require('./controllers/graphql/graphQLResolvers.js');
+app.use('/graphql', new GraphQLController(new GraphQLResolvers()));
 
 const {router_login, passport} = require("./routers/login.router");
 app.use(passport.initialize()).use(passport.session());

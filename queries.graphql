@@ -10,7 +10,7 @@ mutation{
     
 }
 
-query(){
+query{
     getProducts{
         title
         price
@@ -33,5 +33,30 @@ mutation{
     deleteProduct(id:24)
     {
     title
+    }
+}
+
+
+mutation{
+	createMessage(object:{
+        message: "Test"
+        profilePhoto: "Test"
+        email: "Test"
+        name: "Test"
+    })
+    {
+        id
+    }
+    
+}
+
+query{
+    getMessages{
+        id
+        message
+        date
+        profilePhoto
+        email
+        name
     }
 }

@@ -41,7 +41,7 @@ const newMessage = async (req, res) => {
     const ip = req.clientIp;
     loggerDefault.info(`[${ip}] - POST /chat`);
     const loggedIn = req.session.loggedIn;
-    const { message, date } = req.body;
+    const { message  } = req.body;
     if (!loggedIn) {
         loggerErrors.error("User not logged");
         res.send({ error: true, status: "You are not logged in!", redirectURL: "/products" });
@@ -49,7 +49,7 @@ const newMessage = async (req, res) => {
     }
     try {
         const user = req.session.user;
-        const id = await db_messages.save({ message, date: date, name: user.username, profilePhoto: user.profilePhoto, email: user.email }); //     // console.log('POST /products');
+        const id = await db_messages.save({ message, date: new Date(), name: user.username, profilePhoto: user.profilePhoto, email: user.email }); //     // console.log('POST /products');
     } catch (error) {
         res.send({ error: true, status: "DB error" });
         loggerErrors.error(error);

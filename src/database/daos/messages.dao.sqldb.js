@@ -11,7 +11,7 @@ class MessagesDaoMysqlDb extends MessagesDao {
         this.table = 'messages';
     }
 
-    async save(object){
+    async save({object}){
         try{
             const id = await this.messages(this.table)
                 .insert(object)

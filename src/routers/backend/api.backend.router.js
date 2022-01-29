@@ -6,6 +6,7 @@ const router_randoms = require("./randoms.router");
 const passportToStandardUser = require("../../middlewares/passportToStandard");
 
 const { getproductsApi } = require("../../controllers/products.controller");
+const { getmessagesApi } = require("../../controllers/chat.controller");
 
 router_api.use("/products-test", router_faker);
 
