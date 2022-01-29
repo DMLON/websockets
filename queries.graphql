@@ -1,0 +1,37 @@
+mutation{
+	createProduct(object:{
+        title:"producto graphql",
+        price:123.323,
+        thumbnail:"www.google.com"
+    })
+    {
+        id
+    }
+    
+}
+
+query(){
+    getProducts{
+        title
+        price
+        thumbnail
+    }
+}
+
+mutation{
+    editProduct(id:29,object:{
+        title:"producto graphql editado",
+        price:123.323,
+        thumbnail:"www.google.com"
+    })
+    {
+    title
+    }
+}
+
+mutation{
+    deleteProduct(id:24)
+    {
+    title
+    }
+}

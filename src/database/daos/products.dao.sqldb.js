@@ -13,7 +13,7 @@ class ProductsDaoDb extends ProductsDao {
         this.table = 'products';
     }
 
-    async save(object){
+    async save({object}){
         try{
             const product = new ProductModel(object);
             const id = await this.products(this.table)
@@ -26,7 +26,7 @@ class ProductsDaoDb extends ProductsDao {
         }
     }
 
-    async update(id,object){
+    async update(id,{object}){
         try{
             const product = new ProductModel(object);
             const rows = await this.products(this.table)
@@ -74,10 +74,11 @@ class ProductsDaoDb extends ProductsDao {
 
     async deleteById(id){
         try{
+            const deletedObject = await this.getById(id)
             const objs = await this.products(this.table)
                 .where({ id: id })
                 .del()
-            return objs;
+            return deletedObject;
         }
         catch(err){
             loggerErrors.error(err);
